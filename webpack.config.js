@@ -1,22 +1,23 @@
-const path = require('path');
+var path = require('path');
+var SRC_DIR = path.join(__dirname, '/client');
+var DIST_DIR = path.join(__dirname, '/public');
 
 module.exports = {
-  devtool: 'source-map',
-  entry: path.join(__dirname, './client/index.jsx'),
+  entry: `${SRC_DIR}/index.jsx`,
   output: {
-    path: path.join(__dirname, 'bundles'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: DIST_DIR
   },
-  module: {
-    loaders: [
+  module : {
+    loaders : [
       {
-        loader: 'babel-loader',
-        test: /\.jsx?$/
-      },
-      {
-        test: /\.css?/,
-        loader: 'style-loader!css-loader'
+        test : /\.jsx?/,
+        include : SRC_DIR,
+        loader : 'babel-loader',      
+        query: {
+          presets: ['react', 'es2015']
+       }
       }
     ]
   }
-}
+};

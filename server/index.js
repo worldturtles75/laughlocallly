@@ -5,10 +5,14 @@ var app = express();
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/../public'))
+// app.use('/bundles', express.static(__dirname + '/../bundles'))
+
 
 app.get('/', function(req, res) {
-			res.send('hello world');
+      res.send('hello world');
 })
+
 
 // app.get('/signup', function(req, res) {
 // 	res.send('signup')

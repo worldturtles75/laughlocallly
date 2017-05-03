@@ -1,12 +1,12 @@
 module.exports = function(app) {
-	var controllers = require('../controllers/cntrl');
+  var controllers = require('../controllers/cntrl');
   
   // app.route('/')
   //   .get(controllers.something);
 	
 	app.route('/signup')
-	  .get(controllers.something)
-	  .post();
+    .get(controllers.something)
+    .post();
 
   app.route('/login')
     .get(controllers.something)

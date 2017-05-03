@@ -1,4 +1,4 @@
-CREATE DATABASE laughlocally;
+-- CREATE DATABASE laughlocally;
 
 USE laughlocally;
 
@@ -20,9 +20,9 @@ CREATE TABLE `audience` (
 CREATE TABLE `events` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255),
-  `eventDate` DATE NOT NULL,
-  `id_venues` INTEGER NOT NULL,
   `id_comedians` INTEGER NOT NULL,
+  `date` DATE NOT NULL,
+  `id_venues` INTEGER NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -68,6 +68,6 @@ CREATE TABLE `hosts` (
 
 -- Step 1) Load file to mysql from inside directory
 --   mysql -u root < database/schema.sql
--- Step 2) Open mysql 
+-- Step 2) Open mysql (no password for root)
 --   mysql -u root -p
 

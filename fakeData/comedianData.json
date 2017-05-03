@@ -1,0 +1,38 @@
+[
+  {
+  "id": 1,
+  "bio": "Super funny dude trying to do stuff that is funny.",
+  "name": "Joel Olsten",
+  "website": "www.funnyGuy.com",
+  "email": "funnyGuy@example.com",
+  "phone": "123-456-7890",
+  "twiter": "@fakeTwitter",
+  "photo_url": "http://images.memes.com/meme/769993",
+  "username": "funnGuy",
+  "passoword": "laugh"
+  },
+  {
+  "id": 2,
+  "bio": "Happy, hilarous, and ready to crack your sides open with my humourous jokes",
+  "name": "Janet CrackMeUp",
+  "website": "www.fbJCMU.com",
+  "email": "gurlIsFunny@example.com",
+  "phone": "111-222-3333",
+  "twiter": "@realTwitterJane",
+  "photo_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTsPG6UDCetIUHbBdNmwo8XuTmsnO3Kqi2ODuTFHFKVUNAifP_TgQ",
+  "username": "happyGirl",
+  "passoword": "funny"
+  },
+  {
+  "id": 3,
+  "bio": "....ha!",
+  "name": "Barry Sanders",
+  "website": "goFunny.com",
+  "email": "chuckle@example.com",
+  "phone": "010-000-8032",
+  "twiter": "@chuckles",
+  "photo_url": "http://images.memes.com/meme/769993",
+  "username": "funnGuy",
+  "passoword": "laugh"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+  "id": 1,
+  "name": "Becky GoodHair",
+  "email": "becky@example.com",
+  "phone": "123-456-7890",
+  "id_events": "24"
+  },
+  {
+  "id": 2,
+  "name": "Tony Chestnut",
+  "email": "tony@example.com",
+  "phone": "123-456-7890",
+  "id_events": "53"
+  },
+  {
+  "id": 3,
+  "name": "Keith Runman",
+  "email": "keith@example.com",
+  "phone": "123-456-7890",
+  "id_events": "12"
+  }
+]

@@ -14,13 +14,16 @@ app.get('/', function(req, res) {
 // 	res.send('signup')
 // })
 
-
 // app.post('/signup', function(req, res) {
 // 	// console.log(req.body);
 // })
 
 // app.get('/login', function(req, res) {
 // 	res.send('login')
+// })
+
+// app.post('/login', function(req, res) {
+// 	//do something
 // })
 
 // app.get('/events', function(req, res) {

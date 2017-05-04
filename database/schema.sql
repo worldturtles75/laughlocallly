@@ -10,10 +10,10 @@ DROP TABLE IF EXISTS hosts;
 
 CREATE TABLE `audience` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255),
-  `email` VARCHAR(255),
-  `phone` VARCHAR(255),
-  `id_events` INTEGER,
+  `name` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `id_events` INTEGER NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -30,27 +30,25 @@ CREATE TABLE `venues` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `dates_avaliable` VARCHAR(255) NOT NULL,
   `address` VARCHAR(255) NOT NULL,
-  `photoURL` VARCHAR(255) NOT NULL,
-  `id_hosts` INTEGER ,
-  `zipcode` INTEGER(5),
+  `zipcode` INTEGER(5) NOT NULL,
+  `id_hosts` INTEGER NOT NULL,
+  `photo_url` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`id`)
 );
-
 
 CREATE TABLE `comedians` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `bio` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `website` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(255) NOT NULL,
+  `twitter` VARCHAR(255) NOT NULL,
+  `photo_url` VARCHAR(1000) NOT NULL,
   `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  `name` VARCHAR(255) NOT NULL,
-  `bio` VARCHAR(255) NOT NULL,
-  `photoURL` VARCHAR(255) NOT NULL,
-  `phone` VARCHAR(255) NOT NULL,
-  `website` VARCHAR(255) NOT NULL,
-  `twitter` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
 );
-
 
 CREATE TABLE `hosts` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,

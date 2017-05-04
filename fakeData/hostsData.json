@@ -1,0 +1,20 @@
+[
+  {
+  "id": 24,
+  "name": "Tyler Smith",
+  "email": "tsmith@gmail.com",
+  "phone": "415-343-2436"
+  },
+  {
+  "id": 53,
+  "name": "Bobby Kim",
+  "email": "bkim@gmail.com",
+  "phone": "415-837-3423"
+  },
+  {
+  "id": 12,
+  "name": "Dave Rock",
+  "email": "drock@gmail.com",
+  "phone": "415-341-5633"
+  }
+]

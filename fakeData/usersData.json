@@ -4,20 +4,20 @@
   "name": "Becky GoodHair",
   "email": "becky@example.com",
   "phone": "123-456-7890",
-  "id_events": "24"
+  "id_events": 15
   },
   {
   "id": 2,
   "name": "Tony Chestnut",
   "email": "tony@example.com",
   "phone": "123-456-7890",
-  "id_events": "53"
+  "id_events": 20
   },
   {
   "id": 3,
   "name": "Keith Runman",
   "email": "keith@example.com",
   "phone": "123-456-7890",
-  "id_events": "12"
+  "id_events": 25
   }
 ]

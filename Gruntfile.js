@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       multiple: {
         command: [
           'npm run build',
-          'grunt nodemon'
+          'npm run server-dev'
         ].join('&')
       }
     },
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('build', ['shell', 'uglify']);
+  grunt.registerTask('build', ['shell']);
 
   grunt.registerTask('start', ['shell']);
 };

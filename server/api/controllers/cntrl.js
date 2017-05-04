@@ -1,5 +1,20 @@
-// var msyql = require('mysql???')
+var express = require('express')
+var router = express.Router()
+var mysql = require('mysql')
+var db = require('../../../database/index.js')
 
-exports.something = function(req, res) {
-	res.send('hello world');
-}
+db.connect();
+
+module.exports.getEvents = function(req, res) {
+  var queryString = 'SELECT * FROM events';
+  db.query(queryString, function (err, result){
+    res.json(result);
+  })
+};
+
+module.exports.getVenues = function(req, res) {
+  var queryString = 'SELECT * FROM venues';
+  db.query(queryString, function (err, result){
+    res.json(result);
+  })
+};

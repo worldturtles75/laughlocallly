@@ -1,21 +1,12 @@
-module.exports = function(app) {
-  var controllers = require('../controllers/cntrl');
-  
-  // app.route('/')
-  //   .get(controllers.something);
-	
-	app.route('/signup')
-    .get(controllers.something)
-    .post();
+var express = require('express')
+var router = express.Router()
+var cntrl = require('../controllers/cntrl.js')
 
-  app.route('/login')
-    .get(controllers.something)
-    .post();
+router.get('/', function (req, res) {
+  res.send('Hello World from root')
+})
 
-  app.route('/events')
-    .get(controllers.something)
-    .post();
+router.get('/getEvents', cntrl.getEvents);
+router.get('/getVenues', cntrl.getVenues);
 
-
-	 // login, singup, click on event, index route, 
-}
+module.exports = router

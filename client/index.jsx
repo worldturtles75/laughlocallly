@@ -1,29 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
-import Navigation from './components/Nav.jsx';
-// import Events from './components/Events.jsx';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import { BrowserRouter, Route } from 'react-router-dom';
+import App from './components/App.jsx'
+// import HomePage from './components/HomePage.jsx';
+// import LoginPage from './containers/LoginPage.jsx';
 
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      events: [],
-      word: "Signup"
-    }
-  }
 
 
-  render () {
-    return (<div>
-      <Navigation word={this.state.word} />
-     
 
-    </div>)
-  }
-}
 
-ReactDOM.render(<App />, document.getElementById('app'));
+
+// ReactDOM.render(<App />, document.getElementById('app'));
+
+
+ReactDOM.render(<MuiThemeProvider muiTheme={getMuiTheme()}>
+  <App /></MuiThemeProvider>, document.getElementById('app'));
 
  // <Events events={this.state.events} />
+
+ //
+ // 

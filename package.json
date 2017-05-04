@@ -20,11 +20,16 @@
   "dependencies": {
     "express": "^4.15.0",
     "jquery": "^3.1.1",
+    "material-ui": "^0.18.0",
     "mysql": "^2.13.0",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^0.14.8",
     "react-addons-transition-group": "^0.14.8",
     "react-dom": "^15.4.2",
-    "reactstrap": "^4.5.0"
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-tap-event-plugin": "^2.0.1",
+    "reactstrap": "^4.5.0",
+    "validator": "^7.0.0"
   }
 }

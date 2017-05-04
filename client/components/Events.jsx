@@ -1,10 +1,10 @@
 import React from 'react';
 import Eventlisting from './Eventlisting.jsx';
 
-const Events = (props) => {
+var Events = () => (
   <div>
-    Events
+    I'm an event.
   </div>
-}
+)
 
 export default Events;

@@ -1,20 +1,16 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import Login from './Login.jsx';
-import Signup from './Signup.jsx';
+import { Link } from 'react-router-dom';
+// import Login from './Login.jsx';
+// import Signup from './Signup.jsx';
 
-var Navigation = ({word}) => (
+var Navigation = () => (
   <div className="Navigation">
     <Navbar>
-    <NavbarBrand>{word}</NavbarBrand>
     <Nav className="ml-auto" navbar>
-      <navItem>
-        <Signup word={word} />
-      </navItem> 
-      <navItem>
-        <Login word={word} />
-      </navItem>
-       
+      <NavItem>
+        <Link to="/login"> Log In </Link>
+      </NavItem> 
       
     </Nav>
     </Navbar>
@@ -22,25 +18,26 @@ var Navigation = ({word}) => (
 );
 
 
-
-  
-
-
-
 export default Navigation; 
 
 
-// <div className="col-md-6 col-md-offset-3">
-
-// </div>
-
-  
 
 
-  // <nav className="navbar">
-  //   <div className="col-md-6 col-md-offset-3">
-  //     <a className="navbar-brand">{word}</a>
-  //   </div>
-  // </nav>
 
-   
+// var Navigation = ({handleLoginInput, word}) => (
+//   <div className="Navigation">
+//     <Navbar>
+//     <Nav className="ml-auto" navbar>
+//       <navItem>
+//         <Signup word={word} />
+//       </navItem> 
+//       <navItem>
+//         <Login handleLoginInput={handleLoginInput} />
+//       </navItem>
+       
+      
+//     </Nav>
+//     </Navbar>
+//   </div>
+// );
+

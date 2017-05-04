@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     shell: {
         multiple: {
           command: [
-            'npm run build:watch',
+            'npm run react-dev',
             'grunt nodemon'
           ].join('&')
         }

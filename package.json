@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
-    "start": "npm install",
-    "server-dev": "node server/index.js",
+    "start": "node server/index.js",
+    "dev-server": "nodemon server/index.js",
     "seed": "node database/seed.js",
     "postinstall": "grunt build"
   },

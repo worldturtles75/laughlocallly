@@ -7,7 +7,7 @@
     "react-dev": "webpack -d --watch",
     "start": "node server/index.js",
     "seed": "node database/seed.js",
-    "postinstall": "webpack -d --watch"
+    "postinstall": "grunt build"
   },
   "author": "Beth Johnson",
   "license": "ISC",

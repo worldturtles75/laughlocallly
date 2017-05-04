@@ -12,8 +12,7 @@ module.exports = function(grunt) {
     shell: {
         multiple: {
           command: [
-            'npm run react-dev',
-            'grunt nodemon'
+            'npm run react-dev'
           ].join('&')
         }
       }
@@ -23,8 +22,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('start', [
-    'shell'
-    ]
-  );
+  grunt.registerTask('build', ['shell']);
+
+  grunt.registerTask('start', ['shell']);
 };

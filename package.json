@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p --watch",
+    "build": "webpack -p",
     "start": "npm install",
     "server-dev": "node server/index.js",
     "seed": "node database/seed.js",

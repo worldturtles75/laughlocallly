@@ -1,12 +1,12 @@
 {
-  "name": "github-fetcher-fullstack-v2",
+  "name": "laughlocal.ly",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
-    "start": "npm install",
-    "server-dev": "node server/index.js",
+    "start": "node server/index.js",
+    "dev-server": "nodemon server/index.js",
     "seed": "node database/seed.js",
     "postinstall": "grunt build"
   },

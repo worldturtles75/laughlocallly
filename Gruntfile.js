@@ -12,8 +12,7 @@ module.exports = function(grunt) {
     shell: {
       multiple: {
         command: [
-          'npm run build',
-          'npm run server-dev'
+          'npm run build'
         ].join('&')
       }
     },

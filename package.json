@@ -8,7 +8,7 @@
     "start": "node server/index.js",
     "dev-server": "nodemon server/index.js",
     "seed": "node database/seed.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm install webpack && npm run build"
   },
   "author": "World Turtles",
   "license": "ISC",

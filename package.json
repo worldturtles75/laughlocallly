@@ -8,9 +8,9 @@
     "start": "node server/index.js",
     "dev-server": "nodemon server/index.js",
     "seed": "node database/seed.js",
-    "postinstall": "grunt build"
+    "heroku-postbuild": "npm run build"
   },
-  "author": "Beth Johnson",
+  "author": "World Turtles",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.23.1",

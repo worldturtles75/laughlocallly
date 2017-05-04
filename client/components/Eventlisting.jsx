@@ -1,9 +1,18 @@
 import React from 'react';
 
-const Eventlisting = (props) => {
-  <div>
-    Event Listing
-  </div>
-};
+class EventListing extends React.Component {
+  constructor (props) {
+    super(props);
+  }
 
-export default Eventlisting;
+  render() {
+    return (
+      <div>
+        <div>Name: {this.props.event.name}</div>
+        <div>Date: {this.props.event.date}</div>
+      </div>
+    );
+  }
+}
+
+export default EventListing;

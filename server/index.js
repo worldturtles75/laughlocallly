@@ -1,45 +1,17 @@
-var express = require('express');
+var express = require('express')
+var app = express()
 // var bodyParser = require('body-parser');
-var items = require('../database');
+// var data = require('../database');
 var routes = require('./api/routes/rts');
 var PORT = process.env.PORT || 3000;
 
-var app = express();
-
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(express.static(__dirname + '/../public'))
 // app.use('/bundles', express.static(__dirname + '/../bundles'))
 
-
-
-
-
-app.get('/', function(req, res) {
-      res.send('hello world');
-})
-
-
-// app.get('/signup', function(req, res) {
-// 	res.send('signup')
-// })
-
-// app.post('/signup', function(req, res) {
-// 	// console.log(req.body);
-// })
-
-// app.get('/login', function(req, res) {
-// 	res.send('login')
-// })
-
-// app.post('/login', function(req, res) {
-// 	//do something
-// })
-
-// app.get('/events', function(req, res) {
-// 	res.send('events');
-// })	
-
+app.use('/', routes);
 
 app.listen(PORT, function() {
 	console.log(`listening on port ${PORT}!`);

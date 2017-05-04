@@ -2,6 +2,7 @@ var express = require('express');
 // var bodyParser = require('body-parser');
 var items = require('../database');
 var routes = require('./api/routes/rts');
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 
@@ -40,9 +41,9 @@ app.get('/', function(req, res) {
 // })	
 
 
-app.listen(3000, function() {
-	console.log('listening on port 3000!');
-})
+app.listen(PORT, function() {
+	console.log(`listening on port ${PORT}!`);
+});
 
 
 

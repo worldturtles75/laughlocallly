@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "node server/index.js",
+    "start": "grunt start",
     "seed": "node database/seed.js"
   },
   "author": "Beth Johnson",
@@ -15,6 +15,9 @@
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "grunt": "^1.0.1",
+    "grunt-nodemon": "^0.4.2",
+    "grunt-shell": "^2.1.0",
     "nodemon": "^1.11.0",
     "webpack": "^2.2.1"
   },

@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack -p --watch",
     "start": "node server/index.js",
     "dev-server": "nodemon server/index.js",
-    "seed": "node database/seed.js",
-    "heroku-postbuild": "npm install webpack && npm run build"
+    "seed": "node database/seed.js"
   },
   "author": "World Turtles",
   "license": "ISC",

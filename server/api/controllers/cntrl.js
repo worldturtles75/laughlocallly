@@ -3,7 +3,7 @@ var router = express.Router()
 var mysql = require('mysql')
 var db = require('../../../database/index.js')
 
-db.connect();
+// db.connect();
 
 module.exports.getEvents = function(req, res) {
   var queryString = 'SELECT * FROM events';

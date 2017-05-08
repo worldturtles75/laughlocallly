@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
+import {hashPassword, compareHash} from '../../server/hashUtils.js';
 
 class Login extends React.Component {
  constructor(props){
@@ -30,6 +31,9 @@ class Login extends React.Component {
   handleSubmit(event) {
     console.log('a password/username was submitted: ' + this.state.username)
     event.preventDefault();
+    //we're going to make a jquey ajax call to server, '/getComedian', grab 
+    //comedian's salt, hash password. asynchonous.
+    hashPassword(this.state.password);
   }
   render () {
     return (

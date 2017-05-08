@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Input } from 'reactstrap';
+import { Form, FormGroup, Input, Button } from 'reactstrap';
 
 class Login extends React.Component {
  constructor(props){
@@ -8,14 +8,23 @@ class Login extends React.Component {
       username: "",
       password: ""
     }
-  this.handleChange = this.handleChange.bind(this);
+  this.handleChangeUsername = this.handleChangeUsername.bind(this);
+  this.handleChangePassword = this.handleChangePassword.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChangeUsername(event) {
+    console.log(event.target.value);
     this.setState({
-      username: event.target.username, 
-      password: event.target.password
+      username: event.target.value, 
+      // password: event.target.value
+    })
+  }
+  handleChangePassword(event) {
+    console.log(event.target.value)
+    this.setState({
+      password: event.target.value, 
+      // password: event.target.value
     })
   }
   handleSubmit(event) {
@@ -27,11 +36,12 @@ class Login extends React.Component {
       <div>
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <Input type="text" name="username" placeholder="username" value={this.state.username} required/>
+          <Input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleChangeUsername} required/>
         </FormGroup>
         <FormGroup>
-          <Input type="password" name="password" placeholder="password" value={this.state.password} required/>
+          <Input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.handleChangePassword} required/>
         </FormGroup>
+        <Button> Submit </Button>
       </Form>
       </div>
         

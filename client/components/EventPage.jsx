@@ -36,3 +36,4 @@ class EventPage extends React.Component {
 }
 
 export default EventPage;
+

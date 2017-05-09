@@ -1,21 +1,34 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import LoginPage from './LoginPage.jsx';
+import SignupPage from './SignupPage.jsx';
 // import Login from './Login.jsx';
 // import Signup from './Signup.jsx';
 
-var Navigation = () => (
-  <div className="Navigation">
-    <Navbar>
-    <Nav className="ml-auto" navbar>
-      <NavItem>
-        <Link to="/login"> Log In </Link>
-      </NavItem> 
-      
-    </Nav>
-    </Navbar>
-  </div>
-);
+class Navigation extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  render () {
+    return (
+      <div className="Navigation">
+        <nav className="navbar navbar-default navbar-fixed-top ">
+          <div className="navbar-header">
+            <a className="navbar-brand navbar-left" href="/"> Laugh Locally </a>
+          </div>
+          <div className="container-fluid navbar-right">
+            <ul className="nav navbar-nav">
+              <li> <Link to="/login"> Log In </Link> </li>      
+              <li> <Link to="/signup"> Sign Up </Link> </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    )
+  }
+}
 
 
 export default Navigation; 

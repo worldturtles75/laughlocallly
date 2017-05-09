@@ -2,27 +2,30 @@ import React, { PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import $ from 'jquery';
-import HomePage from './HomePage.jsx';
+// import HomePage from './HomePage.jsx';
 import LoginPage from './LoginPage.jsx';
-// import Navigation from './Nav.jsx';
-// import Events from './Events.jsx';
+import SignupPage from './SignupPage.jsx';
+import Navigation from './Nav.jsx';
+import Events from './Events.jsx';
 
 const App = () => (
   <div>
-    <Router>
-      <div>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/login" component={LoginPage} />
-      </div>
-    </Router>
-    <Link to='/login'> Log In </Link>
+    <div>
+      <Navigation />
+    </div>
+      <Route exact path='/' component={Events} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/signup" component={SignupPage} />
+      
+    
+
   </div>
 )
 
 export default App; 
 
 
-      
+
       
 
 

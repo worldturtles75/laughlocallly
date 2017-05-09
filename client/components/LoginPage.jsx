@@ -17,6 +17,10 @@ class LoginPage extends React.Component{
       password: ""
   }
 
+  this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+  this.handleUsernameInput = this.handleUsernameInput.bind(this);
+  this.handlePasswordInput = this.handlePasswordInput.bind(this);
+
   }
 
   handleLoginSubmit(e){
@@ -36,15 +40,15 @@ class LoginPage extends React.Component{
   render () {
     return (
       <Card className="container">
-        <form action="/" onSubmit={this.handleLoginSubmit.bind(this)}>
+        <form action="/" onSubmit={this.handleLoginSubmit}>
           <h2 className="card-heading"> Login </h2>
 
           <div className="field-line">
-            <TextField floatingLabelText="Email" name="email" onChange={this.handleUsernameInput.bind(this)} value={this.state.email} />
+            <TextField floatingLabelText="Email" name="email" onChange={this.handleUsernameInput} value={this.state.email} />
           </div>
 
           <div className="field-line">
-            <PasswordField floatingLabelText="Password" name="password" onChange={this.handlePasswordInput.bind(this)} value={this.state.password} />
+            <PasswordField floatingLabelText="Password" name="password" onChange={this.handlePasswordInput} value={this.state.password} />
           </div>
 
           <div className="bottom-line">

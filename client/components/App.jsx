@@ -6,14 +6,16 @@ import $ from 'jquery';
 import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
 import Navigation from './Nav.jsx';
-import Events from './Events.jsx';
+import EventPage from './EventPage.jsx';
+import ComedianDash from '../containers/ComedianDash.jsx'
 
 const App = () => (
   <div>
     <div>
       <Navigation />
     </div>
-      <Route exact path='/' component={Events} />
+      <Route exact path='/' component={EventPage} />
+      <Route path="/comedians" component={ComedianDash} />
       <Route path="/login" component={LoginPage} />
       <Route path="/signup" component={SignupPage} />
       

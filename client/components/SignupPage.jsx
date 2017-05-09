@@ -22,6 +22,9 @@ class SignupPage extends React.Component{
         bio: ""
       }
   }
+
+  this.handleUserInput = this.handleUserInput.bind(this);
+  this.handleSignupSubmit = this.handleSignupSubmit.bind(this);
   
   }
 
@@ -42,39 +45,39 @@ class SignupPage extends React.Component{
   render () {
     return (
       <Card className="container">
-        <form action="/" onSubmit={this.handleSignupSubmit.bind(this)}>
+        <form action="/" onSubmit={this.handleSignupSubmit}>
           <h2 className="card-heading"> Comedian Sign Up </h2>
 
           <div className="field-line">
-            <TextField floatingLabelText="Name" name="name" onChange={this.handleUserInput.bind(this)} value={this.state.user.name} />
+            <TextField floatingLabelText="Name" name="name" onChange={this.handleUserInput} value={this.state.user.name} />
           </div>
 
           <div className="field-line">
-            <TextField floatingLabelText="Email" name="email" onChange={this.handleUserInput.bind(this)} value={this.state.user.email} />
+            <TextField floatingLabelText="Email" name="email" onChange={this.handleUserInput} value={this.state.user.email} />
           </div>
 
           <div className="field-line">
-            <PasswordField floatingLabelText="Create a Password" name="password" onChange={this.handleUserInput.bind(this)} value={this.state.user.password} />
+            <PasswordField floatingLabelText="Create a Password" name="password" onChange={this.handleUserInput} value={this.state.user.password} />
           </div>
 
           <div className="field-line">
-            <TextField floatingLabelText="Website" name="website" onChange={this.handleUserInput.bind(this)} value={this.state.user.website} />
+            <TextField floatingLabelText="Website" name="website" onChange={this.handleUserInput} value={this.state.user.website} />
           </div>
 
           <div className="field-line">
-            <TextField floatingLabelText="Bio" name="bio" onChange={this.handleUserInput.bind(this)} value={this.state.user.bio} />
+            <TextField floatingLabelText="Bio" name="bio" onChange={this.handleUserInput} value={this.state.user.bio} />
           </div>
 
           <div className="field-line">
-            <TextField floatingLabelText="Twitter" name="twitter" onChange={this.handleUserInput.bind(this)} value={this.state.user.twitter} />
+            <TextField floatingLabelText="Twitter" name="twitter" onChange={this.handleUserInput} value={this.state.user.twitter} />
           </div>
 
           <div className="field-line">
-            <TextField floatingLabelText="Link to a Photo of Yourself" name="photo_url" onChange={this.handleUserInput.bind(this)} value={this.state.user.photo_url} />
+            <TextField floatingLabelText="Link to a Photo of Yourself" name="photo_url" onChange={this.handleUserInput} value={this.state.user.photo_url} />
           </div>
 
           <div className="field-line">
-            <TextField floatingLabelText="Phone Number" name="phone" onChange={this.handleUserInput.bind(this)} value={this.state.user.phone} />
+            <TextField floatingLabelText="Phone Number" name="phone" onChange={this.handleUserInput} value={this.state.user.phone} />
           </div>
 
           <div className="bottom-line">

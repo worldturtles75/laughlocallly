@@ -3,6 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 import { Link } from 'react-router-dom';
 import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
+import ComedianDash from '../containers/ComedianDash.jsx'
 // import Login from './Login.jsx';
 // import Signup from './Signup.jsx';
 
@@ -22,6 +23,7 @@ class Navigation extends React.Component {
             <ul className="nav navbar-nav">
               <li> <Link to="/login"> Log In </Link> </li>      
               <li> <Link to="/signup"> Sign Up </Link> </li>
+              <li> <Link to="/comedians"> Comedians </Link></li>
             </ul>
           </div>
         </nav>

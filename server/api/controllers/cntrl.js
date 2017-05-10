@@ -54,3 +54,29 @@ module.exports.audienceRegistration = function(req, res) {
     res.json(result);
   })
 };
+
+module.exports.signup = function(req, res) {
+  var ob = req.body;
+  var queryString = `INSERT INTO comedians 
+    (name, email, password, website, phone, twitter, photo_url, bio, salt, video_url) VALUES 
+    ('${ob.name}', '${ob.email}', '${ob.password}', '${ob.website}', '${ob.phone}', 
+    '${ob.twitter}', '${ob.photo_url}', '${ob.photo_url}', '${ob.salt}', 'todolater')`;
+  db.query(queryString, function(req, res) {
+    console.log('comedian info inserted into comedians table')
+  })  
+  res.end();
+};
+
+module.exports.checkLogin = function(req, res) {
+  var info = req.body;
+  var email = req.body.email;
+  var password = req.body.password;
+  var queryString = `SELECT password, salt FROM comedians where 
+  (email = '${req.body.email}');`
+  db.query(queryString, function(err, result) {
+    console.log('search performed');
+    res.json(result)
+  })
+}
+
+

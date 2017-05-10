@@ -12,5 +12,9 @@ router.get('/getComedian', cntrl.getComedian);
 router.get('/getComedians', cntrl.getComedians);
 router.get('/getEventInfo', cntrl.getEventInfo);
 router.post('/audienceRegistration', cntrl.audienceRegistration);
+router.post('/signup', cntrl.signup);
+router.post('/loginCheck', cntrl.checkLogin);
+
+
 
 module.exports = router;

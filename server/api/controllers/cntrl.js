@@ -3,7 +3,6 @@ var router = express.Router()
 var mysql = require('mysql')
 var db = require('../../../database/index.js')
 
-
 // db.connect();
 
 module.exports.getEvents = function(req, res) {
@@ -79,4 +78,7 @@ module.exports.checkLogin = function(req, res) {
     res.json(result)
   })
 }
+
+
+};
 

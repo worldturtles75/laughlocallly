@@ -5,7 +5,7 @@ module.exports.hashPassword = (password, salt) => {
 }
 
 module.exports.compareHash = (attempted, stored, salt) => {
-	return stored === this.hashPassword(attempted, salt);
+	return stored === this.createHash(attempted, salt);
 }
 
 module.exports.createSalt = () => {

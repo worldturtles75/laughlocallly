@@ -14,4 +14,7 @@ router.get('/getEventInfo', cntrl.getEventInfo);
 router.post('/audienceRegistration', cntrl.audienceRegistration);
 router.post('/signup', cntrl.signup);
 router.post('/loginCheck', cntrl.checkLogin);
+
+
+
 module.exports = router;

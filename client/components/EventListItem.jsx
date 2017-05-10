@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-
 class EventListItem extends React.Component {
   constructor (props) {
     super(props);
@@ -15,6 +14,6 @@ class EventListItem extends React.Component {
       </div>
     );
   }
-}
+}r
 
 export default EventListItem;

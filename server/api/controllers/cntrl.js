@@ -20,9 +20,16 @@ module.exports.getVenues = function(req, res) {
 };
 
 module.exports.getComedians = function(req, res) {
-	var queryString = `SELECT username FROM comedians where 
-	(username = ${req.body.username});`
+	var queryString = `SELECT * FROM comedians`
 	db.query(queryString, function(err, result) {
 		res.json(result);
 	})
+};
+
+module.exports.getComedian = function(req, res) {
+  var queryString = `SELECT username FROM comedians where 
+  (username = ${req.body.username});`
+  db.query(queryString, function(err, result) {
+    res.json(result);
+  })
 };

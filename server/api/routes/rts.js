@@ -8,6 +8,7 @@ router.get('/', function (req, res) {
 
 router.get('/getEvents', cntrl.getEvents);
 router.get('/getVenues', cntrl.getVenues);
+router.get('/getComedian', cntrl.getComedian);
 router.get('/getComedians', cntrl.getComedians);
 
 module.exports = router;

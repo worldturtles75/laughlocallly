@@ -21,9 +21,10 @@ class Navigation extends React.Component {
           </div>
           <div className="container-fluid navbar-right">
             <ul className="nav navbar-nav">
+              <li> <Link to="/comedianprofiles"> Book a Comedian </Link> </li>   
               <li> <Link to="/login"> Log In </Link> </li>      
               <li> <Link to="/signup"> Sign Up </Link> </li>
-              <li> <Link to="/comedians"> Comedians </Link></li>
+              <li> <Link to="/comediandash"> Comedians </Link></li>
             </ul>
           </div>
         </nav>

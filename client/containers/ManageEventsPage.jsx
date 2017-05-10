@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router-dom';
+import BookedEvents from '../components/BookedEvents.jsx';
+import PendingEvents from '../components/PendingEvents.jsx';
 
 class ManageEventsPage extends React.Component{
   constructor(props){
@@ -11,7 +13,10 @@ class ManageEventsPage extends React.Component{
 
   render () {
     return (
-     <div> Manage Events </div>
+     <div> Manage Events 
+       <PendingEvents />
+       <BookedEvents />
+     </div>
 
       )
   }

@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
-import EventListing from './EventListing.jsx';
+import EventListItem from './EventListItem.jsx';
+import EventDetail from './EventDetail.jsx';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 
 class EventList extends React.Component {
@@ -11,9 +13,18 @@ class EventList extends React.Component {
   render() {
     return (
       <div>
-        <h2>Event List</h2>
-        {this.props.data.map( (event) => <EventListing event={event} key={event.name}/> )}           
+        <Router>
+          <div>
+            <h2>Upcoming Events:</h2>
+            <ul>
+              {this.props.data.map( (event) => <EventListItem event={event} key={event.name}/> )}           
+            </ul>
+
+            <Route path="/:id" component={EventDetail}/>
+          </div>
+        </Router>
       </div>
+
     );
   }
 }

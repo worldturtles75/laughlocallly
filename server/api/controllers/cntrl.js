@@ -33,3 +33,24 @@ module.exports.getComedian = function(req, res) {
     res.json(result);
   })
 };
+
+module.exports.getEventInfo = function(req, res) {
+  console.log('req', req.query)
+  var queryString = `SELECT * FROM events where 
+  (id = ${req.query});`
+  db.query(queryString, function(err, result) {
+    res.json(result);
+  })
+};
+
+module.exports.audienceRegistration = function(req, res) {
+  var params = [];
+  for (var key in req.body) {
+    params.push(req.body[key]);
+  }
+
+  var queryString = 'INSERT INTO audience (name, email, phone, id_events) VALUE (?,?,?,?)' 
+  db.query(queryString, params, function(err, result) {
+    res.json(result);
+  })
+};

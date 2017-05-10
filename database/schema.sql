@@ -27,7 +27,7 @@ CREATE TABLE `events` (
   `end_time` TIME NOT NULL, 
   `id_venues` INTEGER NOT NULL,
   `photo_url` VARCHAR(300) NOT NULL,
-  `status` VARCHAR(50) NOT NULL
+  `status` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -57,8 +57,9 @@ CREATE TABLE `comedians` (
   `phone` VARCHAR(255) NOT NULL,
   `twitter` VARCHAR(255) NOT NULL,
   `photo_url` VARCHAR(1000) NOT NULL,
-  `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `salt` VARCHAR(255) NOT NULL,
+  `video_url` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
 );
 

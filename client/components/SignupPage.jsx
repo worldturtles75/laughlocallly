@@ -5,6 +5,9 @@ import TextField from 'material-ui/TextField';
 import PasswordField from 'material-ui-password-field'
 // import LoginForm from './LoginForm.jsx';
 import { Link } from 'react-router-dom';
+import { hashPassword, createSalt, compareHash } from '../../server/hashUtils.js';
+import $ from 'jquery';
+
 
 class SignupPage extends React.Component{
   constructor(props){
@@ -30,9 +33,22 @@ class SignupPage extends React.Component{
 
   handleSignupSubmit(e){
     e.preventDefault();
-    const user=this.state.user; 
-    console.log({email: user.email, name: user.name, password: user.password});
-    
+    var user=this.state.user; 
+    user.salt = createSalt();
+    var hash = hashPassword(user.password, user.salt)
+    user.password = hash;
+    console.log(user);
+    $.ajax({
+      url: '/signup',
+      type: 'POST',
+      data: user,
+      success: function(data) {
+        console.log('sent');
+      },
+      error: function(error) {
+        console.error('failed to send', error);
+      }
+    })  
   }
 
   handleUserInput(e){

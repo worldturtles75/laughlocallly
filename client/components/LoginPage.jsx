@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import PasswordField from 'material-ui-password-field';
 import {hashPassword, compareHash} from '../../server/hashUtils.js';
-
+import $ from 'jquery';
 // import LoginForm from './LoginForm.jsx';
 import { Link } from 'react-router-dom';
 
@@ -25,8 +25,28 @@ class LoginPage extends React.Component{
 
   handleLoginSubmit(e){
     e.preventDefault();
-    console.log({email: this.state.email, password: this.state.password})
-    
+    var enteredPassword = this.state.password;
+    $.ajax({
+      url: '/loginCheck',
+      type: 'POST',
+      data: this.state,
+      success: function(data) {
+        if (data.length < 1) {
+          console.log('invalid username')
+          return;
+        }
+        var oldPassword = data[0].password;
+        var salt = data[0].salt;
+        if (compareHash(enteredPassword, oldPassword, salt)) {
+          console.log('correct password');
+        } else {
+          console.log('incorrect password');
+        }
+      },
+      error: function(error) {
+        console.error('failed to send', error);
+      }
+    })
   }
 
   handleUsernameInput(e){

@@ -58,6 +58,7 @@ CREATE TABLE `comedians` (
   `twitter` VARCHAR(255) NOT NULL,
   `photo_url` VARCHAR(1000) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `salt` VARCHAR(255) NOT NULL,
   `video_url` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`id`)
 );

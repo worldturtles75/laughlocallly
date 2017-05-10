@@ -20,12 +20,14 @@ class ComedianDash extends React.Component{
             </div>
             <div className="container-fluid navbar-right">
               <ul className="nav navbar-nav">
-                <li> <Link to="/bookvenue"> Book Venue </Link> </li>      
+                <li> <Link to="/editcomedianprofile"> Edit Profile </Link> </li>   
+                <li> <Link to="/bookvenue"> Open Gigs </Link> </li>      
                 <li> <Link to="/manageevents"> Manage Events </Link> </li>
               </ul>
             </div>
           </nav>
-      
+        
+        
         <Route path="/bookvenue" component={BookVenuePage} />
         <Route path="/manageevents" component={ManageEventsPage} />
 

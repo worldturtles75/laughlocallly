@@ -8,6 +8,7 @@ import SignupPage from './SignupPage.jsx';
 import Navigation from './Nav.jsx';
 import EventPage from './EventPage.jsx';
 import ComedianDash from '../containers/ComedianDash.jsx'
+import ComediansPage from '../containers/ComediansPage.jsx'
 
 const App = () => (
   <div>
@@ -15,7 +16,8 @@ const App = () => (
       <Navigation />
     </div>
       <Route exact path='/' component={EventPage} />
-      <Route path="/comedians" component={ComedianDash} />
+      <Route path="/comedianprofiles" component={ComediansPage} />
+      <Route path="/comediandash" component={ComedianDash} />
       <Route path="/login" component={LoginPage} />
       <Route path="/signup" component={SignupPage} />
       

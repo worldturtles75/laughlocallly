@@ -5,6 +5,7 @@ USE laughlocally;
 DROP TABLE IF EXISTS audience;
 DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS venues;
+DROP TABLE IF EXISTS venueavailability;
 DROP TABLE IF EXISTS comedians;
 DROP TABLE IF EXISTS hosts;
 
@@ -22,31 +23,42 @@ CREATE TABLE `events` (
   `name` VARCHAR(255),
   `id_comedians` INTEGER NOT NULL,
   `date` DATE NOT NULL,
+  `start_time` TIME NOT NULL, 
+  `end_time` TIME NOT NULL, 
   `id_venues` INTEGER NOT NULL,
+  `photo_url` VARCHAR(300) NOT NULL,
+  `status` VARCHAR(50) NOT NULL
   PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `venues` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `dates_avaliable` VARCHAR(255) NOT NULL,
   `address` VARCHAR(255) NOT NULL,
   `zipcode` INTEGER(5) NOT NULL,
   `id_hosts` INTEGER NOT NULL,
   `photo_url` VARCHAR(1000) NOT NULL,
+  `capacity` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `venueavailability` (
+  `id` INTEGER NOT NULL, 
+  `start_date` DATETIME NOT NULL,
+  `end_date` DATETIME NOT NULL,
   PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `comedians` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `bio` VARCHAR(255) NOT NULL,
+  `bio` VARCHAR(10000) NOT NULL,
   `name` VARCHAR(255) NOT NULL,
   `website` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `phone` VARCHAR(255) NOT NULL,
   `twitter` VARCHAR(255) NOT NULL,
   `photo_url` VARCHAR(1000) NOT NULL,
-  `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `video_url` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`id`)
 );
 

@@ -14,7 +14,7 @@ comedianData.forEach ( (obj) => {
     params.push(obj[key]);
   }
   var queryStr = 'insert into comedians \
-                  value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';          
+                  value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';          
   db.query(queryStr, params, function(err, results) {
     console.log('Dummy data inserted into comedians table');
   });  

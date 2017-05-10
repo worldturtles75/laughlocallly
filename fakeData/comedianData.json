@@ -1,38 +1,38 @@
 [
   {
   "id": 1,
-  "bio": "Super funny dude trying to do stuff that is funny.",
-  "name": "Joel Olsten",
-  "website": "www.funnyGuy.com",
+  "bio": "Marga Gomez is known for her work in solo performance and stand up comedy and for being one of the first openly lesbian performers in the nation. She has appeared on LOGO’s \"One Night Stand Up,\" Showtime's \"Latino Laugh Festival,\" Comedy Central's \"Out There\" and HBO’s \"Comic Relief” at the invitation of Robin Williams who called her \"Amazing… a lesbian Lenny Bruce.” She has been a guest on leading comedy podcasts Marc Maron’s \"WTF,\" \"The Keith and The Girl Show” and Kevin Allison's \"Risk.\"  Her comic style has been described as \"deliciously cheeky and incendiary” by the New York Times and \"salaciously surreal” by the San Francisco Chronicle. She is a regular at SF Comedy Day and has been featured at numerous comedy festivals including SF Sketchfest, Montreal’s Just For Laughs, South Beach Comedy Festival, Vancouver Comedy Festival and The Edinburgh Fringe Festival.",
+  "name": "Marga Gomez",
+  "website": "http://www.margagomez.com/",
   "email": "funnyGuy@example.com",
   "phone": "123-456-7890",
-  "twiter": "@fakeTwitter",
-  "photo_url": "http://images.memes.com/meme/769993",
-  "username": "funnGuy",
-  "passoword": "laugh"
+  "twitter": "MargaGomez",
+  "photo_url": "http://sfist.com/attachments/SFist_Joe/margagomez.jpg",
+  "password": "laugh", 
+  "video_url": "https://www.youtube.com/watch?v=tsVJzDahaIQ"
   },
   {
   "id": 2,
-  "bio": "Happy, hilarous, and ready to crack your sides open with my humourous jokes",
-  "name": "Janet CrackMeUp",
-  "website": "www.fbJCMU.com",
+  "bio": "W. Kamau Bell is a critically acclaimed sociopolitical comedian and host of the Emmy Award nominated hit CNN docu-series United Shades of America. Season two premiered on April 30th, 2017. Kamau’s first book, The Awkward Thoughts of W. Kamau Bell: Tales of a 6' 4\", African American, Heterosexual, Cisgender, Left-Leaning, Asthmatic, Black and Proud Blerd, Mama's Boy, Dad, and Stand-Up Comedian, came out on May 2nd, 2017. Kamau is the host of three podcasts: Denzel Washington is The Greatest Actor of All Time Period, Politically Re-Active, and Kamau Right Now! Kamau Right Now also airs live on NPR radio station KALW. Kamau’s first comedy special, Semi-Prominent Negro, was produced and directed by Morgan Spurlock, and the comedy album for the special was released on Kill Rock Stars. The New York Times called Kamau “the most promising new talent in political comedy in many years.”",
+  "name": "W. Kamau Bell",
+  "website": "http://www.wkamaubell.com",
   "email": "gurlIsFunny@example.com",
   "phone": "111-222-3333",
-  "twiter": "@realTwitterJane",
-  "photo_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTsPG6UDCetIUHbBdNmwo8XuTmsnO3Kqi2ODuTFHFKVUNAifP_TgQ",
-  "username": "happyGirl",
-  "passoword": "funny"
+  "twitter": "realTwitterJane",
+  "photo_url": "http://sfist.com/attachments/SFist_Joe/wkamaubell.jpg",
+  "password": "funny",
+  "video_url": "https://www.youtube.com/watch?v=IPfDF-dYAy0"
   },
   {
   "id": 3,
-  "bio": "....ha!",
-  "name": "Barry Sanders",
-  "website": "goFunny.com",
+  "bio": "Kate Willett has been featured on Comedy Central’s \"This Is Not Happening,\" Viceland’s \"Flophouse\" and toured with Margaret Cho nationally and internationally.  You might have seen her on Fusion TV or heard her on the Risk! podcast with Kevin Allison. She’s was named a top “Artist to Watch in 2016” by SF Weekly, has opened for comedians like Kyle Kinane, Jen Kirkman,  Greg Behrendt, Dana Gould, Jackie Kashian, and Myq Kaplan,   She’s appeared in the 2015 Just for Laughs Montreal Comedy Festival, Limestone Comedy Festival, and San Francisco Sketchfest (5 years in a row).  She’s a regular feature at comedy clubs all over the country and a favorite of audience members, flannel clad skateboarders, and all of her twenty-three roommates.",
+  "name": "Kate Willet",
+  "website": "https://katewillett.com",
   "email": "chuckle@example.com",
   "phone": "010-000-8032",
-  "twiter": "@chuckles",
-  "photo_url": "http://images.memes.com/meme/769993",
-  "username": "funnGuy2",
-  "passoword": "laugh"
+  "twitter": "@chuckles",
+  "photo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbpaxdZnhaGGb-ZOP14nn7CgTR52_WSGMulk4D7lhfQO8JjcViO3774os",
+  "password": "laugh",
+  "video_url": "https://www.youtube.com/watch?v=jMberwwGp6A"
   }
 ]

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class EventListing extends React.Component {
+class EventListItem extends React.Component {
   constructor (props) {
     super(props);
   }
@@ -15,4 +15,4 @@ class EventListing extends React.Component {
   }
 }
 
-export default EventListing;
+export default EventListItem;

@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import EventList from './EventList.jsx';
+import ChatBox from './ChatBox.jsx';
 
 class EventPage extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class EventPage extends React.Component {
       <div>
         <h1>Event Page</h1>
         <EventList data={this.state.allEvents}/>
+        <ChatBox />             
       </div>
   )}
 }

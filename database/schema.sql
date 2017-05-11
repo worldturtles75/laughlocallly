@@ -1,4 +1,5 @@
--- CREATE DATABASE laughlocally;
+DROP DATABASE IF EXISTS laughlocally;
+CREATE DATABASE laughlocally;  
 
 USE laughlocally;
 
@@ -33,6 +34,7 @@ CREATE TABLE `events` (
 
 CREATE TABLE `venues` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `dates_available` VARCHAR(255) NOT NULL,
   `address` VARCHAR(255) NOT NULL,
   `zipcode` INTEGER(5) NOT NULL,
   `id_hosts` INTEGER NOT NULL,

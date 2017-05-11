@@ -3,24 +3,27 @@
   "id": 1,
   "dates_availible": "[1, 2, 3, 4, 5]",
   "address": "123 BeckLane, City, CA",
-  "zipCode": 12345,
+  "zipcode": 12345,
   "id_hosts": 24,
-  "photo_url": "photo"
+  "photo_url": "photo", 
+  "capacity": 12
   },
   {
   "id": 2,
   "dates_availible": "[1, 2, 3, 6, 9]",
   "address": "456 Swerve st, Sand Storm, CA",
-  "zipCode": 13462,
+  "zipcode": 13462,
   "id_hosts": 53,
-  "photo_url": "png"
+  "photo_url": "png", 
+  "capactiy": 45
   },
   {
   "id": 3,
-    "dates_availible": "[3, 4, 5, 6, 7]",
-    "address": "908 Spaghetti cir, Coast, CA",
-    "zipCode": 54321,
-    "id_hosts": 12,
-    "photo_url": "jpg"
+  "dates_availible": "[3, 4, 5, 6, 7]",
+  "address": "908 Spaghetti cir, Coast, CA",
+  "zipcode": 54321,
+  "id_hosts": 12,
+  "photo_url": "jpg",
+  "capacity": 32
   }
 ]

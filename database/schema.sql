@@ -1,5 +1,4 @@
-DROP DATABASE IF EXISTS laughlocally;
-CREATE DATABASE laughlocally;  
+-- CREATE DATABASE laughlocally;  
 
 USE laughlocally;
 

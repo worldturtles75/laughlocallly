@@ -57,14 +57,23 @@ module.exports.audienceRegistration = function(req, res) {
 
 module.exports.signup = function(req, res) {
   var ob = req.body;
-  var queryString = `INSERT INTO comedians 
-    (name, email, password, website, phone, twitter, photo_url, bio, salt, video_url) VALUES 
-    ('${ob.name}', '${ob.email}', '${ob.password}', '${ob.website}', '${ob.phone}', 
-    '${ob.twitter}', '${ob.photo_url}', '${ob.photo_url}', '${ob.salt}', 'todolater')`;
-  db.query(queryString, function(req, res) {
-    console.log('comedian info inserted into comedians table')
-  })  
-  res.end();
+  var queryString = `SELECT * FROM comedians where 
+  (email = '${req.body.email}');`;
+  db.query(queryString, function(err, result) {
+    console.log('search performed');
+    if (result.length > 0) {
+      res.json(null);
+    } else {
+      var queryString = `INSERT INTO comedians 
+        (name, email, password, website, phone, twitter, photo_url, bio, salt, video_url) VALUES 
+        ('${ob.name}', '${ob.email}', '${ob.password}', '${ob.website}', '${ob.phone}', 
+        '${ob.twitter}', '${ob.photo_url}', '${ob.photo_url}', '${ob.salt}', 'todolater')`;
+      db.query(queryString, function(err, result) {
+        console.log('comedian info inserted into comedians table');
+        res.json('success');
+      })  
+    }
+  })
 };
 
 module.exports.checkLogin = function(req, res) {

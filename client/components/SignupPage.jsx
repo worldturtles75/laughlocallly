@@ -37,18 +37,24 @@ class SignupPage extends React.Component{
     user.salt = createSalt();
     var hash = hashPassword(user.password, user.salt)
     user.password = hash;
-    console.log(user);
+    var context = this;
     $.ajax({
       url: '/signup',
       type: 'POST',
       data: user,
       success: function(data) {
-        console.log('sent');
+        if (!data) {
+          alert('There is already an email associated with this account. Please click on the log-in tab to sign-in');
+          // context.props.history.push('/login');
+        } else {
+          alert('Successful sign-up!');
+          context.props.history.push('/');
+        }
       },
       error: function(error) {
         console.error('failed to send', error);
       }
-    })  
+    })
   }
 
   handleUserInput(e){

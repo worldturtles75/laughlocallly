@@ -9,6 +9,7 @@
   "twitter": "MargaGomez",
   "photo_url": "http://sfist.com/attachments/SFist_Joe/margagomez.jpg",
   "password": "laugh", 
+  "salt": "232423535335",
   "video_url": "https://www.youtube.com/watch?v=tsVJzDahaIQ"
   },
   {
@@ -21,6 +22,7 @@
   "twitter": "realTwitterJane",
   "photo_url": "http://sfist.com/attachments/SFist_Joe/wkamaubell.jpg",
   "password": "funny",
+  "salt": "23238438259328",
   "video_url": "https://www.youtube.com/watch?v=IPfDF-dYAy0"
   },
   {
@@ -33,6 +35,7 @@
   "twitter": "@chuckles",
   "photo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbpaxdZnhaGGb-ZOP14nn7CgTR52_WSGMulk4D7lhfQO8JjcViO3774os",
   "password": "laugh",
+  "salt": "48976349876340932",
   "video_url": "https://www.youtube.com/watch?v=jMberwwGp6A"
   }
 ]

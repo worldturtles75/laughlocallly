@@ -1,5 +1,6 @@
 var express = require('express')
 var app = express()
+var db = require('../database/index.js');
 var bodyParser = require('body-parser');
 // var data = require('../database');
 var routes = require('./api/routes/rts');

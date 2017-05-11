@@ -4,20 +4,32 @@
   "name": "Joel's Good Show",
   "id_comedians": 1,
   "date": "2017-05-17",
-  "id_venues": 1
+  "start_time": "01:01:01",
+  "end_time": "02:01:01",
+  "id_venues": 1,
+  "photo_url": "https://www.photo_url/joel.com",
+  "status": "open"
   },
   {
   "id": 20,
   "name": "Janet Show",
   "id_comedians": 2,
   "date": "2017-05-20",
-  "id_venues": 2
+  "start_time": "03:01:01",
+  "end_time": "04:01:01",
+  "id_venues": 2,
+  "photo_url": "https://www.photo_url/janet.com",
+  "status": "open"
   },
   {
   "id": 25,
   "name": "Barry's Fun Show",
   "id_comedians": 3,
   "date": "2017-05-28",
-  "id_venues": 3
+  "start_time": "06:01:01",
+  "end_time": "07:01:01",
+  "id_venues": 3,
+  "photo_url": "https://www.photo_url/barry.com",
+  "status": "open"
   }
 ]

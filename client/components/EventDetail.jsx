@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import EventRegistrationForm from './EventRegistrationForm.jsx';
+import ChatBox from './ChatBox.jsx';
 
 class EventDetail extends React.Component {
   constructor ({props}) {
@@ -30,7 +31,6 @@ class EventDetail extends React.Component {
   render() {
     return (
      <div>
-      <div>Socket io chat box goes here</div>
       <EventRegistrationForm eventID={this.props.match.params.id}/>
     </div>
 

@@ -14,6 +14,6 @@ class EventListItem extends React.Component {
       </div>
     );
   }
-}r
+}
 
 export default EventListItem;

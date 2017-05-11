@@ -30,24 +30,27 @@ class LoginPage extends React.Component{
       url: '/loginCheck',
       type: 'POST',
       data: this.state,
+      context: this,
       success: function(data) {
         if (data.length < 1) {
-          console.log('invalid username')
+          alert('Invalid username. If you have not registered yet, please click the sign-up tab to create an account');
           return;
         }
         var oldPassword = data[0].password;
         var salt = data[0].salt;
+
         if (compareHash(enteredPassword, oldPassword, salt)) {
-          console.log('correct password');
+          this.props.history.push('/');
+          //redirect the user if he has registered already and entered the right password
         } else {
-          console.log('incorrect password');
+          alert('incorrect password');
+          return;
         }
       },
       error: function(error) {
         console.error('failed to send', error);
       }
     })
-    
   }
 
   handleUsernameInput(e){

@@ -20,7 +20,16 @@ class EventList extends React.Component {
               {this.props.data.map( (event) => <EventListItem event={event} key={event.name}/> )}           
             </ul>
 
-            <Route path="/:id" component={EventDetail}/>
+
+            <Route path="/:id" component={ (props) => { 
+              const currentEvent = this.props.data.filter((event) => {
+                return Number(props.match.params.id) === event.id;
+              });          
+              return <EventDetail data={currentEvent[0]} {...props} /> 
+            }}/> 
+
+                        
+
           </div>
         </Router>
       </div>
@@ -30,3 +39,6 @@ class EventList extends React.Component {
 }
 
 export default EventList;
+            // <Route path="/:id" component={EventDetail}/>
+
+// <Route path="/:id" component={ props => <EventDetail data={this.props.data} {...props} />} />            

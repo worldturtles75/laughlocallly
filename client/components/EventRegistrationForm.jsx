@@ -2,11 +2,6 @@ import React from 'react';
 import $ from 'jquery';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-import { Card, CardTitle, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import PasswordField from 'material-ui-password-field';
-
 class EventRegistrationForm extends React.Component {
   constructor (props) {
     super(props);
@@ -44,36 +39,28 @@ class EventRegistrationForm extends React.Component {
     const field = e.target.name;
     const audience = this.state.audience;
     audience[field] = e.target.value; 
-    audience['id_events'] = Number(this.props.eventID);
+    audience['id_events'] = Number(this.props.event.id);
     this.setState({audience});
   }
 
   render() {
     return (
-     <div>
-      <Card className="container">
-        <form action="/" onSubmit={this.handleRegistrationSubmit}>
-          <h2 className="card-heading"> Event Registration: Event ID {this.props.eventID}</h2>
-
-          <div className="field-line">
-            <TextField floatingLabelText="Name" name="name" onChange={this.handleAudienceInput} value={this.state.audience.name} />
+        <form onSubmit={this.handleRegistrationSubmit}>
+          <h2> Event Registration: {this.props.event.name}</h2>
+          <div className="form-group">
+            <label>Name</label>
+            <input type='text' placeholder="Name" name="name" className="form-control" onChange={this.handleAudienceInput} value={this.state.audience.name} />
+          </div> 
+          <div className="form-group">
+            <label>Email address</label>
+            <input type='text' placeholder="Email" name="email" className="form-control" onChange={this.handleAudienceInput} value={this.state.audience.email} />
           </div>
-
-          <div className="field-line">
-            <TextField floatingLabelText="Email" name="email" onChange={this.handleAudienceInput} value={this.state.audience.email} />
+          <div className="form-group">
+            <label>Phone Number</label>
+            <input type='text' placeholder="Phone Number" name="phone" className="form-control" onChange={this.handleAudienceInput} value={this.state.audience.phone} />
           </div>
-
-          <div className="field-line">
-            <TextField floatingLabelText="Phone Number" name="phone" onChange={this.handleAudienceInput} value={this.state.audience.phone} />
-          </div>
-
-          <div className="bottom-line">
-            <RaisedButton type="submit" label="Register" primary />
-          </div>
+          <button type="submit" className="btn-sm btn-primary">Submit</button>
         </form>
-      </Card> 
-    </div>
-
     );
   }
 }

@@ -1,8 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+
 
 const io = require('socket.io-client')
 const socket = io()
@@ -15,7 +13,7 @@ class UsersList extends React.Component {
   render () {
     return (
       <div>
-        <h3> People Online! </h3>
+        <h4> People Online! </h4>
         <ul>{ this.props.users.map( (user, i) => <li key={i}> {user} </li>  ) }</ul>       
       </div>      
     );
@@ -44,7 +42,7 @@ class MessageList extends React.Component {
   render () {
     return (
       <div>
-        <h3> Conversation: </h3>
+        <h4> Conversation: </h4>
         {this.props.messages.map((message, i) => 
             <Message key={i} user={message.user} text={message.text} />
         )} 
@@ -80,22 +78,15 @@ class MessageInput extends React.Component {
 
   render() {
     return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          
-          <div className="field-line">
-            <textarea onChange={this.handleTextInput} value={this.state.text} placeholder='Your mesg here'> </textarea>
-          </div>
-
-          <div className="bottom-line">
-            <RaisedButton type="submit" label="Submit Mesg" primary />
-          </div>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <div className="col-sm-10">
+          <input type='text' placeholder="Mesg Here" name="mesg" className="form-control" onChange={this.handleTextInput} value={this.state.text} />
+        </div>
+        <button type="submit" className="btn-sm btn-primary">Submit</button>
+      </form>
     );
   }
 }
-// <input type='text' onChange={this.handleTextInput} value={this.state.text} placeholder='Your mesg here'/>
 
 class ChatBox extends React.Component {
   constructor (props) {
@@ -175,12 +166,16 @@ class ChatBox extends React.Component {
 
   render() {
     return (
-      <div>
-      <Card className="container">      
-        <UsersList users={this.state.users} />
-        <MessageList messages={this.state.messages} />
+      <div className="well well-lg">
+        <div className="row">
+          <div className="col-md-8">
+            <MessageList messages={this.state.messages} />
+          </div>
+          <div className="col-md-4">
+            <UsersList users={this.state.users} />
+          </div>
+        </div>
         <MessageInput onMessageSubmit={this.handleMessageSubmit} user={this.state.user} />
-      </Card>         
       </div>
     );
   }

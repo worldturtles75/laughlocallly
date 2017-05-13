@@ -6,24 +6,33 @@ var db = require('../../../database/index.js')
 // db.connect();
 
 module.exports.getEvents = function(req, res) {
-  var queryString = 'SELECT * FROM events';
+  var queryString = `SELECT events.name FROM events, comedians WHERE (comedians.email = '${req.query.email}'
+    and events.id_comedians = comedians.id and events.status = 'open')`
   db.query(queryString, function (err, result){
     res.json(result);
   })
 };
 
+module.exports.getPendingEvents = function(req, res) {
+  var queryString = `SELECT events.name FROM events, comedians WHERE (comedians.email = '${req.query.email}'
+    and events.id_comedians = comedians.id and events.status = 'pending')`
+  db.query(queryString, function (err, result){
+    res.json(result);
+  })
+}
+
 module.exports.getVenues = function(req, res) {
   var queryString = 'SELECT * FROM venues';
   db.query(queryString, function (err, result){
     res.json(result);
-  })	
+  })  
 };
 
 module.exports.getComedians = function(req, res) {
-	var queryString = `SELECT * FROM comedians`
-	db.query(queryString, function(err, result) {
-		res.json(result);
-	})
+  var queryString = `SELECT * FROM comedians`
+  db.query(queryString, function(err, result) {
+    res.json(result);
+  })
 };
 
 module.exports.getComedian = function(req, res) {
@@ -70,7 +79,10 @@ module.exports.signup = function(req, res) {
         '${ob.twitter}', '${ob.photo_url}', '${ob.photo_url}', '${ob.salt}', 'todolater')`;
       db.query(queryString, function(err, result) {
         console.log('comedian info inserted into comedians table');
-        res.json('success');
+        res.json({
+          email: ob.email, 
+          name: ob.name
+        })
       })  
     }
   })
@@ -80,10 +92,9 @@ module.exports.checkLogin = function(req, res) {
   var info = req.body;
   var email = req.body.email;
   var password = req.body.password;
-  var queryString = `SELECT password, salt FROM comedians where 
+  var queryString = `SELECT * FROM comedians where 
   (email = '${req.body.email}');`
   db.query(queryString, function(err, result) {
-    console.log('search performed');
     res.json(result)
   })
 }

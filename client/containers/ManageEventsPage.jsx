@@ -7,20 +7,20 @@ class ManageEventsPage extends React.Component{
   constructor(props){
   super(props);  
   
-  this.state = {}
+  this.state = {
+    comedianInfo: this.props.location.state.comedianInfo
+  }
   }
 
 
   render () {
     return (
-     <div> Manage Events 
-       <PendingEvents />
-       <BookedEvents />
+     <div> Manage Events
+       <PendingEvents comedianInfo={this.state.comedianInfo}/>  
+       <BookedEvents comedianInfo ={this.state.comedianInfo}/> 
      </div>
-
-      )
+    )
   }
-
 }
 
 export default ManageEventsPage;

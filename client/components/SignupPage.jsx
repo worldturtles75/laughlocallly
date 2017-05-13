@@ -43,13 +43,17 @@ class SignupPage extends React.Component{
       type: 'POST',
       data: user,
       success: function(data) {
+        var comedianInfo = data;
         if (!data) {
           alert('There is already an email associated with this account. Please click on the log-in tab to sign-in');
           // context.props.history.push('/login');
         } else {
           alert('Successful sign-up!');
-          context.props.history.push('/');
-        }
+          context.props.history.push({
+            pathname: '/comediandash',
+            state: {comedianInfo: comedianInfo}
+        })
+       }
       },
       error: function(error) {
         console.error('failed to send', error);

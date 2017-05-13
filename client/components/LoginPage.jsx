@@ -38,10 +38,13 @@ class LoginPage extends React.Component{
         }
         var oldPassword = data[0].password;
         var salt = data[0].salt;
+        var comedianInfo = data[0];
 
         if (compareHash(enteredPassword, oldPassword, salt)) {
-          this.props.history.push('/');
-          //redirect the user if he has registered already and entered the right password
+          this.props.history.push({
+            pathname: '/comediandash',
+            state: {comedianInfo: comedianInfo}
+          });
         } else {
           alert('incorrect password');
           return;

@@ -8,20 +8,20 @@ class PendingEvents extends React.Component {
       pendingEventList: []
     }
     
-    this.getEvent = this.getEvent.bind(this);
+    this.getPendingEvent = this.getPendingEvent.bind(this);
     this.editEvent = this.editEvent.bind(this);
   }
 
   componentDidMount() {
-    // this.getEvent();
+    this.getPendingEvent();
   }
 
-  getEvent() {
+  getPendingEvent() {
     var that = this;
-    $.get('/getEvent')
+    $.get('/getPendingEvents', {"email": this.props.comedianInfo.email})
     .done(data => {
       this.setState({
-        eventListing: data
+        pendingEventList: data
       })
     })
   }
@@ -43,8 +43,9 @@ class PendingEvents extends React.Component {
 
   render() {
     return (
-      <div>
+      <div> 
         <p>Pending event details!</p>
+        <p>{JSON.stringify(this.state.pendingEventList[0])}</p>
       </div>
     );
   }

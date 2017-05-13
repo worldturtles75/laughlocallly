@@ -10,7 +10,7 @@ router.get('/getEvents', cntrl.getEvents);
 router.get('/getVenues', cntrl.getVenues);
 router.get('/getComedian', cntrl.getComedian);
 router.get('/getComedians', cntrl.getComedians);
-router.get('/getEventInfo', cntrl.getEventInfo);
+router.get('/getAllEventsForEventPage', cntrl.getAllEventsForEventPage);
 router.post('/audienceRegistration', cntrl.audienceRegistration);
 router.post('/signup', cntrl.signup);
 router.post('/loginCheck', cntrl.checkLogin);

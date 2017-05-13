@@ -18,7 +18,7 @@ class EventPage extends React.Component {
 
   fetch() {
     var that = this;
-    $.get('/getEvents')
+    $.get('/getAllEventsForEventPage')
     .done(function (data){
       // console.log('data', data);
       that.setState({

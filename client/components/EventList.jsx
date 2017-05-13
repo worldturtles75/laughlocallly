@@ -24,10 +24,3 @@ class EventList extends React.Component {
 }
 
 export default EventList;
-
-            // <Route path="/:id" component={ (props) => { 
-            //   const currentEvent = this.props.data.filter((event) => {
-            //     return Number(props.match.params.id) === event.id;
-            //   });          
-            //   return <EventDetail data={currentEvent[0]} {...props} /> 
-            // }}/> 

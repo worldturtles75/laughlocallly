@@ -14,9 +14,14 @@ module.exports.getEvents = function(req, res) {
 };
 
 module.exports.getPendingEvents = function(req, res) {
-  var queryString = `SELECT events.name FROM events, comedians WHERE (comedians.email = '${req.query.email}'
-    and events.id_comedians = comedians.id and events.status = 'pending')`
-  db.query(queryString, function (err, result){
+  var queryString = `SELECT * FROM events WHERE (id_comedians = ${req.query.id} AND events.status = 'pending')`
+  db.query(queryString, function(err, result) {
+    res.json(result);
+  })
+}
+module.exports.getBookedEvents = function(req, res) {
+  var queryString = `SELECT * FROM events WHERE (id_comedians = ${req.query.id} AND events.status = 'booked')`
+  db.query(queryString, function(err, result) {
     res.json(result);
   })
 }

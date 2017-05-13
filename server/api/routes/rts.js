@@ -14,7 +14,8 @@ router.get('/getAllEventsForEventPage', cntrl.getAllEventsForEventPage);
 router.post('/audienceRegistration', cntrl.audienceRegistration);
 router.post('/signup', cntrl.signup);
 router.post('/loginCheck', cntrl.checkLogin);
-router.get('/getPendingEvents', cntrl.getPendingEvents)
+router.get('/getPendingEvents', cntrl.getPendingEvents);
+router.get('/getBookedEvents', cntrl.getBookedEvents);
 
 
 

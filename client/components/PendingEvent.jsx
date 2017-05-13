@@ -11,11 +11,11 @@ class PendingEvent extends React.Component {
   render() {
     console.log('pending props', this.props.pending)
     return (
-      <div>
+      <div className="thumbnail">
         <div>Name: {this.props.pending.name}</div>
         <div>Date: {this.props.pending.date}</div>
         <div>Detail: <img src={this.props.pending.photo_url}/> </div>
-        <button>Accept</button><button>Deny</button>
+        <button onClick={() => this.props.accept()}>Accept</button><button>Deny</button>
       </div>
     );
   }

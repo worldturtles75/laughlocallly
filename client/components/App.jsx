@@ -8,23 +8,60 @@ import SignupPage from './SignupPage.jsx';
 import Navigation from './Nav.jsx';
 import EventPage from './EventPage.jsx';
 import ComedianDash from '../containers/ComedianDash.jsx'
-import ComediansPage from '../containers/ComediansPage.jsx'
+import ComedianList from './ComedianList.jsx';
+import ComedianProfile from '../containers/ComedianProfile.jsx'
+import BookPage from '../containers/BookPage.jsx';
+ 
+class App extends React.Component {
+  constructor(props){
+    super(props);
 
-const App = () => (
-  <div>
-    <div>
-      <Navigation />
-    </div>
-      <Route exact path='/' component={EventPage} />
-      <Route path="/comedianprofiles" component={ComediansPage} />
-      <Route path="/comediandash" component={ComedianDash} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/signup" component={SignupPage} />
+    this.state = {
+      comedians: []
+    }
+  }
+
+  componentWillMount(){
+    var context=this;
+    $.get('/getComedians')
+     .done(function(data){
+        // console.log(data, 'COMEDIAN DATA');
+        context.setState({comedians: data});
+     })
+     .fail(function(err){
+        console.error(err, "ERROR RECEIVING INFO")
+     })
+  }
+  
+  render () {
+    return (
+
+      <div>
+      <div>
+        <Navigation />
+      </div>
+        <Route exact path='/' component={EventPage} />
+        <Route path="/comedianprofiles" component={(props) => <ComedianList comedians={this.state.comedians}{...props} />} />
+        <Route path="/comediandash" component={ComedianDash} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/signup" component={SignupPage} />
+        <Route path="/book" component={BookPage} />
+        <Route 
+        path="/profile/:name" 
+        component={(props) => {
+            // console.log(props);
+            const profiles = this.state.comedians.filter((comedian) => props.match.params.name === comedian.name);
+            // console.log(profiles[0]);
+            return <ComedianProfile comedian={profiles[0]} {...props} />
+      }}/>
+
+        
       
-    
 
-  </div>
-)
+    </div>
+    )
+  }
+}
 
 export default App; 
 
@@ -32,43 +69,3 @@ export default App;
 
       
 
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { 
-//       events: [],
-//       word: "Signup"
-//     }
-//   }
-
-//   insertDB(obj){
-//     console.log(obj, "USER OBJ");
-//   }
-
-//   render () {
-//     return (<div>
-//       <Navigation word={this.state.word} handleLoginInput={this.insertDB.bind(this)} />
-     
-
-//     </div>)
-//   }
-// }
-
-/*
-    <div className="Navigation">
-      <Navbar>
-      <Nav className="ml-auto" navbar>
-        <navItem>
-          <Link to='/login'> Log In </Link>
-        </navItem> 
-        
-      </Nav>
-      </Navbar>
-    </div>
-
-   <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/login' component={LoginPage} />
-        </Switch>
-*/

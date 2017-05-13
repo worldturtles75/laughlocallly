@@ -3,6 +3,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import ContentSearch from 'material-ui/svg-icons/action/search';
 import ContentMap from 'material-ui/svg-icons/maps/map';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Avatar from 'material-ui/Avatar';
 import {
   cyan500
@@ -14,6 +15,7 @@ const styles = {
 }
 
 const ComedianListItem = ({item}) => (
+  <Link key={item.id} to={`/profile/${item.name}`}>
   <Card>
     <CardMedia
       overlay={<CardTitle title={item.name} 
@@ -22,7 +24,7 @@ const ComedianListItem = ({item}) => (
       <img src={item.photo_url} height = {250} width = 'auto'/>
     </CardMedia>
     <CardHeader
-      title={item.bio}
+      title={item.bio.slice(0,200)+'...'}
       titleStyle={{'fontSize':'10px', 'fontWeight':'light'}}
       subtitle={'Rating: ' + item.rating}
       
@@ -44,9 +46,12 @@ const ComedianListItem = ({item}) => (
       </div>
     </CardActions>
   </Card>
+  </Link>
 )
 
 export default ComedianListItem;
+
+// <Link key={item.id} to={{pathname: `/profile/$(item.name)`}}>
 
 // avatar={<Avatar
 //         backgroundColor = {cyan500} >

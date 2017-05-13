@@ -8,7 +8,8 @@
   "end_time": "02:01:01",
   "id_venues": 1,
   "photo_url": "https://www.photo_url/joel.com",
-  "status": "open"
+  "status": "open",
+  "description": "blah"
   },
   {
   "id": 20,
@@ -19,7 +20,8 @@
   "end_time": "04:01:01",
   "id_venues": 2,
   "photo_url": "https://www.photo_url/janet.com",
-  "status": "open"
+  "status": "open",
+  "description": "bleh bleh"
   },
   {
   "id": 25,
@@ -30,6 +32,7 @@
   "end_time": "07:01:01",
   "id_venues": 3,
   "photo_url": "https://www.photo_url/barry.com",
-  "status": "open"
+  "status": "open",
+  "description": "party"
   }
 ]

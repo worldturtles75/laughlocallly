@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router-dom';
 import BookedEvents from '../components/BookedEvents.jsx';
-import PendingEvents from '../components/PendingEvents.jsx';
+import PendingEventsList from '../components/PendingEventsList.jsx';
 
 class ManageEventsPage extends React.Component{
   constructor(props){
@@ -16,7 +16,7 @@ class ManageEventsPage extends React.Component{
   render () {
     return (
      <div> Manage Events
-       <PendingEvents comedianInfo={this.state.comedianInfo}/>  
+       <PendingEventsList comedianInfo={this.state.comedianInfo}/>  
        <BookedEvents comedianInfo ={this.state.comedianInfo}/> 
      </div>
     )

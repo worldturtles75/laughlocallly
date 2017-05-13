@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import BookVenuePage from './BookVenuePage.jsx';
+import OpenGigsPage from './OpenGigsPage.jsx';
 import ManageEventsPage from './ManageEventsPage.jsx';
 
 class ComedianDash extends React.Component{
@@ -21,14 +21,14 @@ class ComedianDash extends React.Component{
             <div className="container-fluid navbar-right">
               <ul className="nav navbar-nav">
                 <li> <Link to="/editcomedianprofile"> Edit Profile </Link> </li>   
-                <li> <Link to="/bookvenue"> Open Gigs </Link> </li>      
+                <li> <Link to="/opengigs"> Open Gigs </Link> </li>      
                 <li> <Link to="/manageevents"> Manage Events </Link> </li>
               </ul>
             </div>
           </nav>
         
         
-        <Route path="/bookvenue" component={BookVenuePage} />
+        <Route path="/opengigs" component={OpenGigsPage} />
         <Route path="/manageevents" component={ManageEventsPage} />
 
      

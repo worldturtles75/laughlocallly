@@ -8,6 +8,9 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
+  devServer: {
+    historyApiFallback: true
+  },
   module : {
     loaders : [
       {

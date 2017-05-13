@@ -6,3 +6,12 @@
   border-bottom: solid 1px gray;
 }
 
+.comedianheader {
+  padding-bottom: 10px;
+  border-bottom: solid 1px gray;
+}
+
+.bio {
+  padding-top: 10px; 
+  font-size: 15px;
+}

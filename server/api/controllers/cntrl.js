@@ -43,10 +43,9 @@ module.exports.getComedian = function(req, res) {
   })
 };
 
-module.exports.getEventInfo = function(req, res) {
+module.exports.getAllEventsForEventPage = function(req, res) {
   console.log('req', req.query)
-  var queryString = `SELECT * FROM events where 
-  (id = ${req.query});`
+  var queryString = `SELECT * FROM events`
   db.query(queryString, function(err, result) {
     res.json(result);
   })

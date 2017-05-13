@@ -18,7 +18,7 @@ class EventPage extends React.Component {
 
   fetch() {
     var that = this;
-    $.get('/getEvents')
+    $.get('/getAllEventsForEventPage')
     .done(function (data){
       // console.log('data', data);
       that.setState({
@@ -29,8 +29,12 @@ class EventPage extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>Event Page</h1>
+      <div className='container'>
+        <div className="jumbotron">
+          <h1>Welcome!</h1>
+          <p>Please select event below. Leave a message in the live chat below!</p>
+        </div>
+
         <EventList data={this.state.allEvents}/>
         <ChatBox />             
       </div>

@@ -27,15 +27,24 @@ class BookedEvents extends React.Component {
     })
   } 
 
-  cancelEvent(){
-    console.log('Cancel is clicked');
+ cancelEvent(eventName) {
+    const bookedList = this.state.bookedEventList;
+    const eventPos = bookedList.map(event => event.name).indexOf(eventName);
+    console.log('Deny Event id', eventPos);
+    $.get('updateStatusToOpen', {id: bookedList[eventPos].id})
+    .done(data => {
+      console.log('Success while denying data event to book', data);
+    })
+    .fail(err => {
+      console.error('Error in cancelEvent', err);
+    })
   }
 
   render() {
     return (
       <div className="col-sm-6 col-md-4">
         <h3>Booked event details!</h3>
-        {this.state.bookedEventList.map( (booked) => <BookedEvent cancel={this.cancelEvent} booked={booked} key={booked.id}/> )} 
+        {this.state.bookedEventList.length ? this.state.bookedEventList.map( (booked) => <BookedEvent cancel={this.cancelEvent} booked={booked} key={booked.id}/> ) : <h3>No Events Are Booked</h3>} 
       </div>
     );
   }

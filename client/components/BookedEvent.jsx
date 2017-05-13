@@ -15,7 +15,7 @@ class BookedEvent extends React.Component {
         <div>Name: {this.props.booked.name}</div>
         <div>Date: {this.props.booked.date}</div>
         <div>Detail: <img src={this.props.booked.photo_url}/> </div>
-        <button onClick={() => this.props.cancel()}>Cancel</button>
+        <button onClick={() => this.props.cancel(this.props.booked.name)}>Cancel</button>
       </div>
     );
   }

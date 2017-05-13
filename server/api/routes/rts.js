@@ -11,12 +11,14 @@ router.get('/getVenues', cntrl.getVenues);
 router.get('/getComedian', cntrl.getComedian);
 router.get('/getComedians', cntrl.getComedians);
 router.get('/getAllEventsForEventPage', cntrl.getAllEventsForEventPage);
-router.post('/audienceRegistration', cntrl.audienceRegistration);
-router.post('/signup', cntrl.signup);
-router.post('/loginCheck', cntrl.checkLogin);
+router.get('/updateStatusToBooked', cntrl.updateEventStatusBooked);
+router.get('/updateStatusToOpen', cntrl.updateEventStatusOpen);
 router.get('/getPendingEvents', cntrl.getPendingEvents);
 router.get('/getBookedEvents', cntrl.getBookedEvents);
 
+router.post('/loginCheck', cntrl.checkLogin);
+router.post('/audienceRegistration', cntrl.audienceRegistration);
+router.post('/signup', cntrl.signup);
 
 
 module.exports = router;

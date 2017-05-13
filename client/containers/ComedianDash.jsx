@@ -5,24 +5,31 @@ import ManageEventsPage from './ManageEventsPage.jsx';
 
 class ComedianDash extends React.Component{
   constructor(props){
-  super(props);  
+    super(props);  
   
-  this.state = {}
+    this.state = {
+      comedianInfo: this.props.location.state.comedianInfo
+    }
   }
 
   render () {
     return (
       <BrowserRouter>
-       <div className="container">
+       <div className="container"> 
           <nav className="navbar navbar-lower comedianNav">
             <div className="navbar-header">
-              <a className="navbar-brand navbar-left" href="/"> Welcome, "USERNAME" </a>
+              <a className="navbar-brand navbar-left" href="/"> Welcome, {this.state.comedianInfo.name}! </a>
             </div>
             <div className="container-fluid navbar-right">
               <ul className="nav navbar-nav">
                 <li> <Link to="/editcomedianprofile"> Edit Profile </Link> </li>   
                 <li> <Link to="/bookvenue"> Open Gigs </Link> </li>      
-                <li> <Link to="/manageevents"> Manage Events </Link> </li>
+                <li> <Link 
+                        to={{
+                          pathname: "/manageevents",
+                          state: {comedianInfo: this.state.comedianInfo}
+                        }}
+                      > Manage Events </Link> </li>
               </ul>
             </div>
           </nav>

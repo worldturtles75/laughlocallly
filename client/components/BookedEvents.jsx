@@ -9,7 +9,7 @@ class BookedEvents extends React.Component {
     }
     
     this.getEvent = this.getEvent.bind(this);
-    this.editEvent = this.editEvent.bind(this);
+    this.editEvent = this.editEvent.bind(this); 
   }
 
   componentDidMount() {
@@ -17,14 +17,14 @@ class BookedEvents extends React.Component {
   }
 
   getEvent() {
-    $.get('/getEvents')
+    $.get('/getEvents', {"email": this.props.comedianInfo.email})
     .done(data => {
       console.log('data received', data)
       this.setState({
         bookedEvents: data
       })
     })
-  }
+  } 
 
   editEvent() {
     // make an api call to db
@@ -45,7 +45,8 @@ class BookedEvents extends React.Component {
     return (
       <div>
         <p>Booked event details!</p>
-        {console.log(this.state.bookedevents)}
+        
+        {JSON.stringify(this.state.bookedEvents[0])}
       </div>
     );
   }

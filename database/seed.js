@@ -30,7 +30,7 @@ eventsDummy.forEach ( (obj) => {
     params.push(obj[key]);
   }
   var queryStr = 'insert into events \
-                  value (?, ?, ?, ?, ?, ?, ?, ?, ?)';          
+                  value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';          
   db.query(queryStr, params, function(err, results) {
     console.log('Dummy data inserted into events table');
   });  

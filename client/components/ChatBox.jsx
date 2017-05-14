@@ -1,22 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
-
 var socket = io.connect();
-
-class UsersList extends React.Component {
-  constructor (props) {
-    super(props);
-  }
-
-  render () {
-    return (
-      <div>
-        <h4> People Online! </h4>
-        <ul>{ this.props.users.map( (user, i) => <li key={i}> {user} </li>  ) }</ul>       
-      </div>      
-    );
-  }
-}
 
 class Message extends React.Component {
   constructor (props) {
@@ -26,7 +9,7 @@ class Message extends React.Component {
   render () {
     return (
       <div>
-        <strong>{this.props.user}: </strong> {this.props.text}    
+        <strong>{this.props.name}: </strong> {this.props.text}    
       </div>      
     );
   }
@@ -42,80 +25,56 @@ class MessageList extends React.Component {
       <div>
         <h4> Conversation: </h4>
         {this.props.messages.map((message, i) => 
-            <Message key={i} user={message.user} text={message.text} />
+            <Message key={i} name={message.name} text={message.text} />
         )} 
       </div>      
     );
   }
 }
 
-
-class MessageInput extends React.Component {
+class MessageForm extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      text: ''
+      text: '',
+      name: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNameInput = this.handleNameInput.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     var message = {
-      user : this.props.user,
+      name : this.state.name,
       text : this.state.text
     }
+    console.log('message', message);
     this.props.onMessageSubmit(message);  
     this.setState({ text: '' });
   }
 
+  handleNameInput(e) {
+    e.preventDefault();
+    this.setState({ name : e.target.value });
+  }
+
   handleTextInput(e) {
+    e.preventDefault();
     this.setState({ text : e.target.value });
   }
 
   render() {
     return(
       <form onSubmit={this.handleSubmit}>
-        <div className="col-sm-10">
-          <input type='text' placeholder="Mesg Here" name="mesg" className="form-control" onChange={this.handleTextInput} value={this.state.text} />
-        </div>
+        <input type='text' placeholder="Your Name Here" className="form-control" onChange={this.handleNameInput} value={this.state.name} />
+        <input type='text' placeholder="Mesg Here" className="form-control" onChange={this.handleTextInput} value={this.state.text} />
         <button type="submit" className="btn-sm btn-primary">Submit</button>
       </form>
     );
   }
 }
-
-var ChangeNameForm = React.createClass({
-  getInitialState() {
-    return {newName: ''};
-  },
-
-  onKey(e) {
-    this.setState({ newName : e.target.value });
-  },
-
-  handleSubmit(e) {
-    e.preventDefault();
-    var newName = this.state.newName;
-    this.props.onChangeName(newName); 
-    this.setState({ newName: '' });
-  },
-
-  render() {
-    return(
-      <div className='change_name_form'>
-        <h4> Enter Your Name </h4>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.onKey}
-            value={this.state.newName} 
-          />
-        </form> 
-      </div>
-    );
-  }
-});
 
 class ChatBox extends React.Component {
   constructor (props) {
@@ -125,27 +84,12 @@ class ChatBox extends React.Component {
       messages: [],
       text: ''
     }
-    this.init = this.init.bind(this);
     this.newMessage = this.newMessage.bind(this);
-    this.userJoined = this.userJoined.bind(this);
-    this.userLeft = this.userLeft.bind(this);
     this.handleMessageSubmit = this.handleMessageSubmit.bind(this);
-    this.handleChangeName = this.handleChangeName.bind(this);
   }
 
   componentDidMount () {
-    socket.on('init', this.init);
     socket.on('send:message', this.newMessage);
-    socket.on('user:join', this.userJoined);
-    socket.on('user:left', this.userLeft);
-    socket.on('change:name', this.handleChangeName);    
-  }
-
-  init (data) {
-    this.setState({
-      users: data.users,
-      currentUser: data.name
-    })
   }
 
   newMessage (newMessage) {
@@ -154,36 +98,6 @@ class ChatBox extends React.Component {
     this.setState({
       messages: messages
     })
-  }
-
-  userJoined (data) {
-    var newUser = data.name;
-    var users = this.state.users;
-    var messages = this.state.messages;
-    users.push(newUser);
-    messages.push({
-      user: 'ROOM ANNOUCEMENT',
-      text : newUser +'has joined!'
-    });
-    this.setState({
-      users: users,
-      messages: messages
-    });    
-  }  
-
-  userLeft (data) {
-    var leftUser = data.name;
-    var users = this.state.users;
-    var messages = this.state.messages;
-    users.splice(users.indexOf(leftUser), 1);
-    messages.push({
-      user: 'ROOM ANNOUCEMENT',
-      text : leftUser +'has left!'
-    });
-    this.setState({
-      users: users,
-      messages: messages
-    });  
   }
 
   handleMessageSubmit(newMessage) {
@@ -196,37 +110,26 @@ class ChatBox extends React.Component {
   }
 
   handleChangeName(newName) {
-    var oldName = this.state.currentUser;
+    var oldName = this.state.user;
     socket.emit('change:name', { name : newName}, (result) => {
       if(!result) {
         return alert('There was an error changing your name');
       }
-      var users = this.state.users;
+      var {users} = this.state;
       var index = users.indexOf(oldName);
       users.splice(index, 1, newName);
-      this.setState({
-        users: users,
-        currentUser: newName
-      })      
+      this.setState({users, user: newName});
     });
-  }  
+  }
 
   render() {
     return (
       <div className='container'>
         <div className="well well-lg">
-          <ChangeNameForm onChangeName={this.handleChangeName} />
-          <div className="row">
-            <div className="col-md-8">
-              <div className='well well-lg'>
-                <MessageList messages={this.state.messages} />
-              </div>
-            </div>
-            <div className="col-md-4">
-              <UsersList users={this.state.users} />
-            </div>
+          <div className='well well-lg'>
+            <MessageList messages={this.state.messages} />
           </div>
-          <MessageInput onMessageSubmit={this.handleMessageSubmit} user={this.state.user} />
+          <MessageForm onMessageSubmit={this.handleMessageSubmit}/>
         </div>
       </div>
     );
@@ -234,4 +137,3 @@ class ChatBox extends React.Component {
 }
 
 export default ChatBox;
-

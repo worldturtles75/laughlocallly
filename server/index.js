@@ -1,16 +1,16 @@
 var express = require('express')
+var http = require('http');
+var socket = require('./api/socket.js');
 
 var app = express()
+var server = http.createServer(app);
+
 var db = require('../database/index.js');
-var app = express();
 
 var PORT = process.env.PORT || 3000;
-var server = app.listen(PORT, function() {
-  console.log(`listening on port ${PORT}!`);
-});
 
 var io = require('socket.io').listen(server);
-var socket = require('./api/socket.js');
+io.sockets.on('connection', socket);
 
 var bodyParser = require('body-parser');
 var routes = require('./api/routes/rts');
@@ -24,8 +24,7 @@ app.use(express.static(__dirname + '/../public'))
 
 app.use('/', routes);
 
-io.sockets.on('connection', socket);
-
-
-
+server.listen(PORT, function (){
+  console.log(`listening on port ${PORT}!`);
+});
 

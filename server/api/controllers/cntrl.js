@@ -108,6 +108,57 @@ module.exports.signup = function(req, res) {
   })
 };
 
+module.exports.bookcomedian = function(req, res) {
+  console.log(req.body)
+  res.end()
+
+  var hostparams = [];
+  for (var key in req.body.host){
+    hostparams.push(req.body.host[key])
+  }
+
+  var queryString = 'INSERT INTO hosts (name, email, phone) VALUE (?,?,?)'
+  db.query(queryString, hostparams, function(err, result) {
+    if (err){
+      console.log(err)
+    } else {
+      res.json(result);
+    }
+  })
+
+  var eventparams = [];
+  for (var key in req.body.event){
+    eventparams.push(req.body.event[key])
+  }
+
+  var queryString = 'INSERT INTO events (date, name, description, photo_url, start_time, end_time, id_comedians, status) VALUE (?,?,?,?,?,?,?,?)'
+  db.query(queryString, hostparams, function(err, result) {
+    if (err){
+      console.log(err)
+    } else {
+      res.json(result);
+    }
+  })
+
+  var venueparams = [];
+  for (var key in req.body.venue){
+    venueparams.push(req.body.venue[key])
+  }
+
+  // NEED TO QUERY FOR HOST BEFORE INSERTING HOST ID. 
+  // SHOULD PROBABLY DO THIS IN A CALLBACK/PROMISE
+
+  var queryString = 'INSERT INTO venues (address, zipcode, photo_url, capacity, id_hosts) VALUE (?,?,?,?,?)'
+  db.query(queryString, hostparams, function(err, result) {
+    if (err){
+      console.log(err)
+    } else {
+      res.json(result);
+    }
+  })
+
+};
+
 module.exports.checkLogin = function(req, res) {
   var info = req.body;
   var email = req.body.email;

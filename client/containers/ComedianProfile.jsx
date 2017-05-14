@@ -24,7 +24,7 @@ class ComedianProfile extends React.Component {
           </div>
           <div className="col-md-4">
             <div className="container">
-              <Link to={{ pathname: "/book", state: {comedian: id} }}><button value={id} type="button" className="btn btn-default"> Book </button></Link>
+              <Link to={{ pathname: "/book", state: {comedian: this.props.comedian} }}><button value={id} type="button" className="btn btn-default"> Book </button></Link>
               <div className="upcoming-events">
                 Upcoming Events
               </div>

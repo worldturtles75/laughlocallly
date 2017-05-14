@@ -19,6 +19,9 @@ router.get('/getBookedEvents', cntrl.getBookedEvents);
 router.post('/loginCheck', cntrl.checkLogin);
 router.post('/audienceRegistration', cntrl.audienceRegistration);
 router.post('/signup', cntrl.signup);
+router.post('/bookcomedian', cntrl.bookcomedian);
+
+
 
 
 module.exports = router;

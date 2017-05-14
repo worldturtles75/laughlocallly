@@ -4,7 +4,6 @@ import EventList from './EventList.jsx';
 import ChatBox from './ChatBox.jsx';
 
 import { Link } from 'react-router-dom';
-// import LoginPage from './LoginPage.jsx';
 
 class EventPage extends React.Component {
   constructor(props) {
@@ -48,4 +47,3 @@ class EventPage extends React.Component {
 
 export default EventPage;
 
-        // <ChatBox />             

@@ -59,7 +59,6 @@ module.exports = function (socket) {
     });
   });
 
-  // validate a user's name change, and broadcast it on success
   socket.on('change:name', function (data, fn) {
     if (userNamesObj.checkIfExist(data.name)) {
       var oldName = name;
@@ -86,3 +85,6 @@ module.exports = function (socket) {
     userNamesObj.cleanNames(name);    
   });
 };
+
+
+

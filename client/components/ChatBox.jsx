@@ -1,9 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
-import { Link } from 'react-router-dom';
 
-const io = require('socket.io-client')
-const socket = io()
+var socket = io.connect();
 
 class UsersList extends React.Component {
   constructor (props) {
@@ -132,6 +130,7 @@ class ChatBox extends React.Component {
     this.userJoined = this.userJoined.bind(this);
     this.userLeft = this.userLeft.bind(this);
     this.handleMessageSubmit = this.handleMessageSubmit.bind(this);
+    this.handleChangeName = this.handleChangeName.bind(this);
   }
 
   componentDidMount () {
@@ -139,6 +138,7 @@ class ChatBox extends React.Component {
     socket.on('send:message', this.newMessage);
     socket.on('user:join', this.userJoined);
     socket.on('user:left', this.userLeft);
+    socket.on('change:name', this.handleChangeName);    
   }
 
   init (data) {
@@ -201,10 +201,13 @@ class ChatBox extends React.Component {
       if(!result) {
         return alert('There was an error changing your name');
       }
-      var {users} = this.state;
+      var users = this.state.users;
       var index = users.indexOf(oldName);
       users.splice(index, 1, newName);
-      this.setState({users, currentUser: newName});
+      this.setState({
+        users: users,
+        currentUser: newName
+      })      
     });
   }  
 

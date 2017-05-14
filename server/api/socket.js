@@ -31,8 +31,13 @@ userNames.prototype.getAllNames = function () {
   return allNames;
 }
 
-var userNamesObj = new userNames();
+userNames.prototype.cleanNames = function (name) {
+  if (this.names[name]) {
+    delete this.names[name];
+  }
+}
 
+var userNamesObj = new userNames();
 
 //EXPORT as SOCKET
 module.exports = function (socket) {
@@ -54,9 +59,30 @@ module.exports = function (socket) {
     });
   });
 
+  // validate a user's name change, and broadcast it on success
+  socket.on('change:name', function (data, fn) {
+    if (userNamesObj.checkIfExist(data.name)) {
+      var oldName = name;
+      userNamesObj.cleanNames(oldName);
+
+      name = data.name;
+      
+      socket.broadcast.emit('change:name', {
+        oldName: oldName,
+        newName: name
+      });
+
+      fn(true);
+    } else {
+      fn(false);
+    }
+  });
+
+
   socket.on('disconnect', function () {
     socket.broadcast.emit('user:left', {
       name: name
     });
+    userNamesObj.cleanNames(name);    
   });
 };

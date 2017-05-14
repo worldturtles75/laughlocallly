@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-
+import { Link } from 'react-router-dom';
 
 const io = require('socket.io-client')
 const socket = io()
@@ -88,6 +88,37 @@ class MessageInput extends React.Component {
   }
 }
 
+var ChangeNameForm = React.createClass({
+  getInitialState() {
+    return {newName: ''};
+  },
+
+  onKey(e) {
+    this.setState({ newName : e.target.value });
+  },
+
+  handleSubmit(e) {
+    e.preventDefault();
+    var newName = this.state.newName;
+    this.props.onChangeName(newName); 
+    this.setState({ newName: '' });
+  },
+
+  render() {
+    return(
+      <div className='change_name_form'>
+        <h4> Enter Your Name </h4>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            onChange={this.onKey}
+            value={this.state.newName} 
+          />
+        </form> 
+      </div>
+    );
+  }
+});
+
 class ChatBox extends React.Component {
   constructor (props) {
     super (props);
@@ -164,18 +195,36 @@ class ChatBox extends React.Component {
     socket.emit('send:message', newMessage);
   }
 
+  handleChangeName(newName) {
+    var oldName = this.state.currentUser;
+    socket.emit('change:name', { name : newName}, (result) => {
+      if(!result) {
+        return alert('There was an error changing your name');
+      }
+      var {users} = this.state;
+      var index = users.indexOf(oldName);
+      users.splice(index, 1, newName);
+      this.setState({users, currentUser: newName});
+    });
+  }  
+
   render() {
     return (
-      <div className="well well-lg">
-        <div className="row">
-          <div className="col-md-8">
-            <MessageList messages={this.state.messages} />
+      <div className='container'>
+        <div className="well well-lg">
+          <ChangeNameForm onChangeName={this.handleChangeName} />
+          <div className="row">
+            <div className="col-md-8">
+              <div className='well well-lg'>
+                <MessageList messages={this.state.messages} />
+              </div>
+            </div>
+            <div className="col-md-4">
+              <UsersList users={this.state.users} />
+            </div>
           </div>
-          <div className="col-md-4">
-            <UsersList users={this.state.users} />
-          </div>
+          <MessageInput onMessageSubmit={this.handleMessageSubmit} user={this.state.user} />
         </div>
-        <MessageInput onMessageSubmit={this.handleMessageSubmit} user={this.state.user} />
       </div>
     );
   }

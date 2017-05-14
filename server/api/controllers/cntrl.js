@@ -3,6 +3,7 @@ var router = express.Router()
 var mysql = require('mysql')
 var db = require('../../../database/index.js')
 
+
 // db.connect();
 
 module.exports.getEvents = function(req, res) {
@@ -110,8 +111,6 @@ module.exports.signup = function(req, res) {
 
 module.exports.bookcomedian = function(req, res) {
   console.log(req.body)
-  res.end()
-
   var hostparams = [];
   for (var key in req.body.host){
     hostparams.push(req.body.host[key])
@@ -122,41 +121,53 @@ module.exports.bookcomedian = function(req, res) {
     if (err){
       console.log(err)
     } else {
-      res.json(result);
-    }
-  })
+      var queryString = `SELECT id FROM hosts ORDER BY id DESC LIMIT 1`
+         db.query(queryString, function(err, result) {
+          if (err) {
+            console.log(err)
+          } else {
+            var idHost = (result[0].id);
+            //add id of hosts to id_hosts of venues;
+            var venueparams = [];
+            for (var key in req.body.venue){
+              venueparams.push(req.body.venue[key])
+            } 
+            venueparams.push(idHost);
+            var queryString = `INSERT INTO venues (address, zipcode, photo_url, capacity, id_hosts) VALUE (?, ?, ?, ?, ?)`
+            db.query(queryString, venueparams, function(err, result) {
+              if (err){  
+                console.log(err)
+              } else {
+                var queryString = `SELECT id FROM venues ORDER BY id DESC LIMIT 1`
+                db.query(queryString, function(err, result) {
+                  if (err) {
+                    console.log(err)
+                  } else {
+                    var idVen = (result[0].id);
+                    //add id venues to id_venues of events
+                    var eventparams = [];
+                    for (var key in req.body.event){
+                      eventparams.push(req.body.event[key])
+                    }
+                    eventparams[6] = ++eventparams[6];
+                    eventparams.push(idVen);
 
-  var eventparams = [];
-  for (var key in req.body.event){
-    eventparams.push(req.body.event[key])
-  }
-
-  var queryString = 'INSERT INTO events (date, name, description, photo_url, start_time, end_time, id_comedians, status) VALUE (?,?,?,?,?,?,?,?)'
-  db.query(queryString, hostparams, function(err, result) {
-    if (err){
-      console.log(err)
-    } else {
-      res.json(result);
-    }
-  })
-
-  var venueparams = [];
-  for (var key in req.body.venue){
-    venueparams.push(req.body.venue[key])
-  }
-
-  // NEED TO QUERY FOR HOST BEFORE INSERTING HOST ID. 
-  // SHOULD PROBABLY DO THIS IN A CALLBACK/PROMISE
-
-  var queryString = 'INSERT INTO venues (address, zipcode, photo_url, capacity, id_hosts) VALUE (?,?,?,?,?)'
-  db.query(queryString, hostparams, function(err, result) {
-    if (err){
-      console.log(err)
-    } else {
-      res.json(result);
-    }
-  })
-
+                    var queryString = 'INSERT INTO events (date, name, description, photo_url, start_time, end_time, id_comedians, status, id_venues) VALUE (?,?,?,?,?,?,?,?,?)'
+                    db.query(queryString, eventparams, function(err, result) {
+                      if (err){
+                        console.log(err)
+                      } else {
+                        res.json(result);
+                      }
+                    })
+                  }
+                })
+              }
+            })
+          }
+        })
+      }
+    })
 };
 
 module.exports.checkLogin = function(req, res) {
@@ -169,5 +180,3 @@ module.exports.checkLogin = function(req, res) {
     res.json(result)
   })
 }
-
-

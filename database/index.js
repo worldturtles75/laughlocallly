@@ -34,13 +34,14 @@ dp.connectAsync()
   		CREATE TABLE IF NOT EXISTS events (
         id INTEGER NOT NULL AUTO_INCREMENT,
         name VARCHAR(255),
-        id_comedians INTEGER NOT NULL,
-        date DATE NOT NULL,
-        start_time TIME NOT NULL, 
-        end_time TIME NOT NULL, 
-        id_venues INTEGER NOT NULL,
-        photo_url VARCHAR(300) NOT NULL,
-        status VARCHAR(50) NOT NULL,
+        id_comedians INTEGER,
+        date VARCHAR(50),
+        start_time VARCHAR(20), 
+        end_time VARCHAR(20), 
+        id_venues INTEGER,
+        photo_url VARCHAR(300),
+        status VARCHAR(50),
+        description VARCHAR(1000),
         PRIMARY KEY (id)
       );`)
   })
@@ -48,12 +49,12 @@ dp.connectAsync()
   	return dp.queryAsync(`
   		CREATE TABLE IF NOT EXISTS venues (
         id INTEGER NOT NULL AUTO_INCREMENT,
-        dates_availible VARCHAR(255) NOT NULL,
-        address VARCHAR(255) NOT NULL,
-			  zipcode INTEGER(5) NOT NULL,
-			  id_hosts INTEGER NOT NULL,
-			  photo_url VARCHAR(1000) NOT NULL,
-			  capacity INTEGER NOT NULL,
+        dates_availible VARCHAR(255),
+        address VARCHAR(255),
+			  zipcode VARCHAR(20),
+			  id_hosts INTEGER,
+			  photo_url VARCHAR(1000),
+			  capacity VARCHAR(30),
 			  PRIMARY KEY (id)
 			);`)
   })

@@ -1,38 +1,38 @@
 [
   {
   "id": 15,
-  "name": "Joel's Good Show",
+  "name": "Marga Gomez's Latin Standards",
   "id_comedians": 1,
-  "date": "2017-05-17",
-  "start_time": "01:01:01",
-  "end_time": "02:01:01",
+  "date": "May 17, 2017",
+  "start_time": "7:00PM",
+  "end_time": "9:00PM",
   "id_venues": 1,
-  "photo_url": "https://www.photo_url/joel.com",
+  "photo_url": "https://static1.squarespace.com/static/569b5f5e7086d768fdf0d10c/t/585a83d6bebafba6992a85c9/1482331000373/MargaGomezWorkshop2017+.png?format=2500w",
   "status": "open",
-  "description": "blah"
+  "description": "Cuban Dad. Lesbian Kid. Showbiz"
   },
   {
   "id": 20,
-  "name": "Janet Show",
+  "name": "W. Kamau Bell: Politically Re-Active",
   "id_comedians": 2,
-  "date": "2017-05-20",
-  "start_time": "03:01:01",
-  "end_time": "04:01:01",
+  "date": "May 20, 2017",
+  "start_time": "6:00PM",
+  "end_time": "8:00PM",
   "id_venues": 2,
-  "photo_url": "https://www.photo_url/janet.com",
+  "photo_url": "http://i2.cdn.cnn.com/cnnnext/dam/assets/160504123304-w-kamau-bell-profile-full-169.jpg",
   "status": "open",
-  "description": "bleh bleh"
+  "description": "Socio-Political Comedian & Dad"
   },
   {
   "id": 25,
-  "name": "Barry's Fun Show",
+  "name": "Kate Willett's Fun Show",
   "id_comedians": 3,
-  "date": "2017-05-28",
-  "start_time": "06:01:01",
-  "end_time": "07:01:01",
+  "date": "May 28, 2017",
+  "start_time": "6:00PM",
+  "end_time": "7:00PM",
   "id_venues": 3,
-  "photo_url": "https://www.photo_url/barry.com",
+  "photo_url": "http://mediad.publicbroadcasting.net/p/kalw/files/styles/medium/public/201512/website-pic-41.jpg",
   "status": "open",
-  "description": "party"
+  "description": "As featured on Comedy Central’s 'This Is Not Happening'"
   }
 ]

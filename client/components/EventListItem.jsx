@@ -28,11 +28,13 @@ class EventListItem extends React.Component {
     return (
       <div className="col-sm-6 col-md-4">
         <div className="thumbnail">
+          <img src={this.props.event.photo_url} alt="..." />        
           <div className="caption">
             <h3>{this.props.event.name}</h3>
-            <p>Date: {this.props.event.date.split('T')[0]}</p>
-            <p>Venue: {this.props.event.id_venues}</p>
-            <p>Comedian: {this.props.event.id_comedians}</p>
+            <p><strong>Date:</strong> {this.props.event.date}</p>
+            <p><strong>Description:</strong> {this.props.event.description}</p>
+
+
             <button className="btn btn-primary btn-sm" onClick={this.openModal} data-toggle="modal">Register</button>
             
             <Modal

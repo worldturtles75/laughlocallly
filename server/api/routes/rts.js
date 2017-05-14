@@ -13,6 +13,7 @@ router.get('/getComedians', cntrl.getComedians);
 router.get('/getAllEventsForEventPage', cntrl.getAllEventsForEventPage);
 router.post('/audienceRegistration', cntrl.audienceRegistration);
 router.post('/signup', cntrl.signup);
+router.post('/bookcomedian', cntrl.bookcomedian);
 router.post('/loginCheck', cntrl.checkLogin);
 router.get('/getPendingEvents', cntrl.getPendingEvents)
 

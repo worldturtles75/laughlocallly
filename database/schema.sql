@@ -28,8 +28,9 @@ CREATE TABLE `events` (
   `start_time` TIME NOT NULL, 
   `end_time` TIME NOT NULL, 
   `id_venues` INTEGER NOT NULL,
-  `photo_url` VARCHAR(300) NOT NULL,
+  `photo_url` VARCHAR(300),
   `status` VARCHAR(50) NOT NULL,
+  `description` VARCHAR(1000) NOT NULL
   PRIMARY KEY (`id`)
 );
 
@@ -39,7 +40,7 @@ CREATE TABLE `venues` (
   `address` VARCHAR(255) NOT NULL,
   `zipcode` INTEGER(5) NOT NULL,
   `id_hosts` INTEGER NOT NULL,
-  `photo_url` VARCHAR(1000) NOT NULL,
+  `photo_url` VARCHAR(1000),
   `capacity` INTEGER NOT NULL,
   PRIMARY KEY (`id`)
 );

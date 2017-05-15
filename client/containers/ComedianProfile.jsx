@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import $ from 'jquery';
+import ComedianEvents from '../components/comediansEvents.jsx'
 
 class ComedianProfile extends React.Component {
   constructor(props){
@@ -45,7 +46,10 @@ class ComedianProfile extends React.Component {
               <div className="col-md-4">
                 <Link to={{ pathname: "/book", state: {comedian: this.props.comedian} }}><button value={id} type="button" className="btn btn-default "> Book </button></Link>
                 <div className="upcoming-events">
-                  Upcoming Events
+                  <b>Upcoming Events</b>
+                  <div>
+                  {this.state.bookedEventList.map(event => {return (<ComedianEvents event={event}/>) })}
+                  </div>
                 </div>
             </div>
           </div>

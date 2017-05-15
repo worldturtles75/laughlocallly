@@ -8,6 +8,11 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
+  devtool: 'eval',
+  devServer: {
+    publicPath: '/public/',
+    historyApiFallback: true
+  },
   module : {
     loaders : [
       {

@@ -60,3 +60,14 @@
   color: white;
   background:transparent;
 }
+
+
+.media-object {
+  width: 340px;
+  height: 200px;
+}
+
+.panel-body {
+  height: 200px;
+}
+

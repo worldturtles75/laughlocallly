@@ -70,6 +70,7 @@ class SignupPage extends React.Component{
 
   render () {
     return (
+      <div className='container'>
         <form  onSubmit={this.handleSignupSubmit}>
           <h2 > Comedian Sign Up </h2>
 
@@ -115,6 +116,7 @@ class SignupPage extends React.Component{
 
         <button type="submit" className="btn-sm btn-primary">Create New Account</button>
       </form>
+    </div> 
     )
   }
 

@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router-dom';
+import BookVenueList from '../components/BookVenueList.jsx';
+
 
 class BookVenuePage extends React.Component{
   constructor(props){
@@ -11,7 +13,9 @@ class BookVenuePage extends React.Component{
 
   render () {
     return (
-     <div> Book Venue </div>
+     <div> Book Venue 
+       <BookVenueList />
+     </div>
 
       )
   }

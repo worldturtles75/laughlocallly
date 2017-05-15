@@ -102,20 +102,26 @@ class BookPage extends React.Component{
         </div>
 
         
-          <div className="form-inline"> 
+          <div className="form-inline date"> 
+            <div className="col-md-4 nopadding"> 
             <label> Date </label>
               
               <DateField
                 dateFormat="MM-DD-YYYY"
                 onChange={this.handleDateInput}
               />
+            </div>
 
-             <label> Start Time </label>
-             <input placeholder="13:30:00" type="time" className="form-control" name="start_time" onChange={this.handleEventInput} value={this.state.event.start_time} /> 
+             <div className="col-md-4"> 
+               <label> Start Time </label>
+               <input placeholder="13:30:00" type="time" className="form-control" name="start_time" onChange={this.handleEventInput} value={this.state.event.start_time} /> 
+             </div>
 
+            <div className="col-md-4"> 
               <label> End Time </label>
              <input type="time" className="form-control" name="end_time" onChange={this.handleEventInput} value={this.state.event.end_time} /> 
-            
+            </div>
+
           </div>
 
           <div className="form-group">
@@ -123,9 +129,11 @@ class BookPage extends React.Component{
             <textarea rows="3" id="eventdesc" type="text" className="form-control" name="description" onChange={this.handleEventInput} value={this.state.event.description} placeholder="A few sentences to give the comedian a sense of what your event is about" />
           </div>
 
-          <label> Location </label>
-          <input id="eventloc" type="text" className="form-control" onChange={this.handleVenueInput} value={this.state.venue.address} name="address" placeholder="Address" />
-          <input id="eventloc" type="number" className="form-control" name="zipcode" onChange={this.handleVenueInput} value={this.state.venue.zipcode} placeholder="Zipcode" />
+          <div className="form-group">
+            <label> Location </label>
+            <input id="eventloc" type="text" className="form-control" onChange={this.handleVenueInput} value={this.state.venue.address} name="address" placeholder="Address" />
+            <input id="eventloc" type="number" className="form-control" name="zipcode" onChange={this.handleVenueInput} value={this.state.venue.zipcode} placeholder="Zipcode" />
+          </div>
 
           <div className="form-group">
             <label> Audience Size </label>

@@ -69,5 +69,10 @@
 
 .panel-body {
   height: 200px;
+  overflow: scroll;  
 }
 
+.thumbnail {
+  height: 450px;
+  padding: 10px;
+}

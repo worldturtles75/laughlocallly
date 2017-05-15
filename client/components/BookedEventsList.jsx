@@ -31,7 +31,7 @@ class BookedEvents extends React.Component {
     const bookedList = this.state.bookedEventList;
     const eventPos = bookedList.map(event => event.name).indexOf(eventName);
     console.log('Deny Event id', eventPos);
-    $.get('updateStatusToOpen', {id: bookedList[eventPos].id})
+    $.get('updateStatusToOpen', {id: bookedList[eventPos].id + 1})
     .done(data => {
       console.log('Success while denying data event to book', data);
     })

@@ -8,6 +8,11 @@ var db = mysql.createConnection({
   database : 'heroku_46dfd3e3a278e3c'
 });
 
+// Will prevent the db from crashing
+setInterval(() => {
+  db.query('SELECT 1');
+}, 5000);
+
 // this will automatically insert tables into mysql when server is run from command line. 
 var dp = Promise.promisifyAll(db);
 
@@ -96,16 +101,3 @@ dp.connectAsync()
   })
 
 module.exports = db;
-
-
-// var selectAll = function(callback) {
-//   connection.query('SELECT * FROM items', function(err, results, fields) {
-//     if(err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// };
-
-// module.exports.selectAll = selectAll;

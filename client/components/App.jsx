@@ -2,13 +2,12 @@ import React, { PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import $ from 'jquery';
-// import HomePage from './HomePage.jsx';
 import ChatBox from './ChatBox.jsx';
 import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
 import Navigation from './Nav.jsx';
 import EventPage from './EventPage.jsx';
-// import ComedianDash from '../containers/ComedianDash.jsx'
+import ComedianDash from '../containers/ComedianDash.jsx'
 import ComedianList from './ComedianList.jsx';
 import ComedianProfile from '../containers/ComedianProfile.jsx'
 import BookPage from '../containers/BookPage.jsx';
@@ -55,6 +54,7 @@ class App extends React.Component {
         <Route path="/login" component={LoginPage} />
         <Route path="/signup" component={SignupPage} />
         <Route path="/book" component={BookPage} />
+        <Route path="/ComedianDash" component={ComedianDash} />
         <Route path="/chatBox" component={(props) => <ChatBox data={this.state.allEvents}{...props} />} />
         <Route 
         path="/profile/:name" 

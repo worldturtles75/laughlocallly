@@ -31,7 +31,8 @@ class EventPage extends React.Component {
 
   render () {
     return (
-      <div className='container'>
+      <div className='bg'>
+        <div className='container'>
         <div className="jumbotron">
           <h1>Find Local Laughs!</h1>
           <p>Please register for upcoming events. Leave a message in the live chat below!</p>
@@ -39,8 +40,11 @@ class EventPage extends React.Component {
             <Link to="/chatBox" className="btn btn-success btn-lg" role="button"> Live Event: Chat Now!</Link>
           </p>
         </div>
+        </div>
 
-        <EventList data={this.state.allEvents}/>
+        <div className='container'>
+          <EventList data={this.state.allEvents}/>
+        </div>
       </div>
   )}
 }

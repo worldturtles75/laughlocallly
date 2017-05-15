@@ -19,7 +19,7 @@ class PendingEvents extends React.Component {
   }
 
   getPendingEvent() {
-    $.get('/getPendingEvents', {id: this.props.comedianInfo.id})
+    $.get('/getPendingEvents', {id: this.props.comedianInfo.id + 1})
     .done(data => {
       this.setState({
         pendingEventList: data

@@ -8,7 +8,7 @@ var hostsData = require('../fakeData/hostsData.json');
 
 // db.connect();
 
-db.query('USE laughlocally', function(err, results) {
+db.query('USE heroku_46dfd3e3a278e3c', function(err, results) {
    //
   });  
 

@@ -28,14 +28,14 @@ module.exports.getBookedEvents = function(req, res) {
 }
 
 module.exports.updateEventStatusBooked = function(req, res) {
-  var queryString = `UPDATE events SET status = 'booked' WHERE id = ${req.query.id};`
+  var queryString = `UPDATE events SET status = 'booked' WHERE id_venues = ${req.query.id};`
   db.query(queryString, function(err, result) {
     res.json(result);
   })
 }
 
 module.exports.updateEventStatusOpen = function(req, res) {
-  var queryString = `UPDATE events SET status = 'open' WHERE id = ${req.query.id};`
+  var queryString = `UPDATE events SET status = 'open' WHERE id_venues = ${req.query.id};`
   db.query(queryString, function(err, result) {
     res.json(result);
   })

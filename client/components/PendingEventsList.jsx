@@ -34,7 +34,7 @@ class PendingEvents extends React.Component {
     const pendingList = this.state.pendingEventList;
     const eventPos = pendingList.map(event => event.name).indexOf(eventName);
     console.log('Accept Event id', eventPos);
-    $.get('updateStatusToBooked', {id: pendingList[eventPos].id + 1})
+    $.get('updateStatusToBooked', {id: pendingList[eventPos].id})
     .done(data => {
       console.log('Success while acceping data event to book', data);
     })

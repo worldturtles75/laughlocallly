@@ -18,6 +18,10 @@ class PendingEvents extends React.Component {
     this.getPendingEvent();
   }
 
+  // componentDidUpdate() {
+  //   this.getPendingEvent();
+  // }
+
   getPendingEvent() {
     $.get('/getPendingEvents', {id: this.props.comedianInfo.id + 1})
     .done(data => {
@@ -33,8 +37,9 @@ class PendingEvents extends React.Component {
   acceptEvent(eventName) {
     const pendingList = this.state.pendingEventList;
     const eventPos = pendingList.map(event => event.name).indexOf(eventName);
-    console.log('Accept Event id', eventPos);
-    $.get('updateStatusToBooked', {id: pendingList[eventPos].id + 1})
+    console.log('Accept Event id pos', eventPos);
+    console.log('Accept Event Data', pendingList[eventPos]);
+    $.get('updateStatusToBooked', {id: pendingList[eventPos].id})
     .done(data => {
       console.log('Success while acceping data event to book', data);
     })

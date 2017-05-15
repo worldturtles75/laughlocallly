@@ -178,3 +178,13 @@ module.exports.checkLogin = function(req, res) {
     res.json(result)
   })
 }
+
+module.exports.getSpecificVenue = function(req, res) {
+  console.log(req.query.id);
+  var venueId = req.query.id
+  var queryString = `SELECT * FROM venues where 
+  (id = ${venueId});`
+  db.query(queryString, function(err, result) {
+    res.json(result);
+  })
+}

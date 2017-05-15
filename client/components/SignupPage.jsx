@@ -70,51 +70,52 @@ class SignupPage extends React.Component{
 
   render () {
     return (
-      <Card className="container">
-        <form action="/" onSubmit={this.handleSignupSubmit}>
-          <h2 className="card-heading"> Comedian Sign Up </h2>
+        <form  onSubmit={this.handleSignupSubmit}>
+          <h2 > Comedian Sign Up </h2>
 
-          <div className="field-line">
-            <TextField floatingLabelText="Name" name="name" onChange={this.handleUserInput} value={this.state.user.name} />
+          <div className="form-group">
+            <label> Name </label>
+            <input type='text' placeholder="Name" name="name" className="form-control" onChange={this.handleUserInput} value={this.state.user.name} />
           </div>
 
-          <div className="field-line">
-            <TextField floatingLabelText="Email" name="email" onChange={this.handleUserInput} value={this.state.user.email} />
+          <div className="form-group">
+            <label> Email </label>
+            <input type='text' placeholder="Email" name="email" className="form-control" onChange={this.handleUserInput} value={this.state.user.email} />
+          </div>
+          
+          <div className="form-group">
+            <label> Create Password </label>
+            <input type='text' placeholder="Password" name="password" className="form-control" onChange={this.handleUserInput} value={this.state.user.password} />
           </div>
 
-          <div className="field-line">
-            <PasswordField floatingLabelText="Create a Password" name="password" onChange={this.handleUserInput} value={this.state.user.password} />
+          <div className="form-group">
+            <label> Website </label>
+            <input type='text' placeholder="Website" name="website" className="form-control" onChange={this.handleUserInput} value={this.state.user.website} />
           </div>
 
-          <div className="field-line">
-            <TextField floatingLabelText="Website" name="website" onChange={this.handleUserInput} value={this.state.user.website} />
+          <div className="form-group">
+            <label> Bio </label>
+            <input type='text' placeholder="Bio" name="bio" className="form-control" onChange={this.handleUserInput} value={this.state.user.bio} />
+          </div>
+         
+         <div className="form-group">
+            <label> Twitter </label>
+            <input type='text' placeholder="Twitter" name="twitter" className="form-control" onChange={this.handleUserInput} value={this.state.user.twitter} />
           </div>
 
-          <div className="field-line">
-            <TextField floatingLabelText="Bio" name="bio" onChange={this.handleUserInput} value={this.state.user.bio} />
+        <div className="form-group">
+            <label> Link a Photo of Yourself! </label>
+            <input type='text' placeholder="url" name="photo_url" className="form-control" onChange={this.handleUserInput} value={this.state.user.photo_url} />
           </div>
 
-          <div className="field-line">
-            <TextField floatingLabelText="Twitter" name="twitter" onChange={this.handleUserInput} value={this.state.user.twitter} />
+        <div className="form-group">
+            <label> Phone Number </label>
+            <input type='text' placeholder="Phone Number" name="phone" className="form-control" onChange={this.handleUserInput} value={this.state.user.phone} />
           </div>
 
-          <div className="field-line">
-            <TextField floatingLabelText="Link to a Photo of Yourself" name="photo_url" onChange={this.handleUserInput} value={this.state.user.photo_url} />
-          </div>
-
-          <div className="field-line">
-            <TextField floatingLabelText="Phone Number" name="phone" onChange={this.handleUserInput} value={this.state.user.phone} />
-          </div>
-
-          <div className="bottom-line">
-            <RaisedButton type="submit" label="Create New Account" primary />
-          </div>
-
-          <CardText> Already have an account? <Link to='/login'> Log in </Link> </CardText>
-        </form>
-      </Card>  
-
-      )
+        <button type="submit" className="btn-sm btn-primary">Create New Account</button>
+      </form>
+    )
   }
 
 }

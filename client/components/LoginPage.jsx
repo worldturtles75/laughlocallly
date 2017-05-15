@@ -66,29 +66,24 @@ class LoginPage extends React.Component{
 
   render () {
     return (
-      <Card className="container">
         <form action="/" onSubmit={this.handleLoginSubmit}>
-          <h2 className="card-heading"> Login </h2>
-
-          <div className="field-line">
-            <TextField floatingLabelText="Email" name="email" onChange={this.handleUsernameInput} value={this.state.email} />
+          <h2 > Login </h2>
+        
+         <div className="form-group">
+            <label> Email </label>
+            <input type='text' placeholder="Email" name="email" className="form-control" onChange={this.handleUsernameInput} value={this.state.email} />
           </div>
-
-          <div className="field-line">
-            <PasswordField floatingLabelText="Password" name="password" onChange={this.handlePasswordInput} value={this.state.password} />
+       
+        <div className="form-group">
+            <label> Password </label>
+            <input type='text' placeholder="Password" name="password" className="form-control" onChange={this.handlePasswordInput} value={this.state.password} />
           </div>
-
-          <div className="bottom-line">
-            <RaisedButton type="submit" label="Log In" primary />
-          </div>
+           <button type="submit" className="btn-sm btn-primary">Login</button>
 
           <CardText> Don't have an account? <Link to='/signup'> Create one </Link> </CardText>
         </form>
-      </Card>  
-
-      )
+    )
   }
-
 }
 
 export default LoginPage;

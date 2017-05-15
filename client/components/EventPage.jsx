@@ -34,6 +34,7 @@ class EventPage extends React.Component {
       <div className='bg'>
         <div className='container'>
         <div className="jumbotron">
+          <h1></h1>
           <h1>Find Local Laughs!</h1>
           <p>Please register for upcoming events. Leave a message in the live chat below!</p>
           <p> 

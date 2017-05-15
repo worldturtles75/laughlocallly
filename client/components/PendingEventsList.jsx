@@ -62,7 +62,7 @@ class PendingEvents extends React.Component {
   }
 
   render() {
-    console.log('pending events list', this.state.pendingEventList)
+    console.log('pending events list', this.state.pendingEventList);
     return (
       <div className="col-sm-6 col-md-4"> 
         <h3>Pending event details!</h3>

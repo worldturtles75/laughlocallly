@@ -9,5 +9,35 @@
 .eventformheader {
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 15px
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.thumbnail img {
+  height: 200px;
+  width: 100%;
+}
+
+.comedianheader {
+  border-bottom: solid 1px lightgray;
+}
+
+.bio {
+  margin-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: solid 1px lightgray;
+}
+
+.date label {
+  padding-right: 5px;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sidebar {
+  padding-top: 10% !important;
 }

@@ -66,6 +66,7 @@ class LoginPage extends React.Component{
 
   render () {
     return (
+      <div className='container'>
         <form action="/" onSubmit={this.handleLoginSubmit}>
           <h2 > Login </h2>
         
@@ -82,6 +83,7 @@ class LoginPage extends React.Component{
 
           <CardText> Don't have an account? <Link to='/signup'> Create one </Link> </CardText>
         </form>
+      </div>
     )
   }
 }

@@ -32,6 +32,7 @@ class EventListItem extends React.Component {
           <div className="caption">
             <h3>{this.props.event.name}</h3>
             <p><strong>Date:</strong> {this.props.event.date}</p>
+            <p><strong>Time:</strong> {this.props.event.start_time}</p>
             <p><strong>Description:</strong> {this.props.event.description}</p>
 
 
@@ -70,7 +71,7 @@ const customStyles = {
     top: 150,
     left: '10%',
     right: '10%',
-    bottom: 200,
+    bottom: 100,
     padding: 30,
     border: '2px solid #444'
  }

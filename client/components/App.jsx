@@ -8,7 +8,7 @@ import LoginPage from './LoginPage.jsx';
 import SignupPage from './SignupPage.jsx';
 import Navigation from './Nav.jsx';
 import EventPage from './EventPage.jsx';
-import ComedianDash from '../containers/ComedianDash.jsx'
+// import ComedianDash from '../containers/ComedianDash.jsx'
 import ComedianList from './ComedianList.jsx';
 import ComedianProfile from '../containers/ComedianProfile.jsx'
 import BookPage from '../containers/BookPage.jsx';
@@ -18,7 +18,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      comedians: []
+      comedians: [],
+      allEvents: []
     }
   }
 
@@ -32,6 +33,14 @@ class App extends React.Component {
      .fail(function(err){
         console.error(err, "ERROR RECEIVING INFO")
      })
+
+    $.get('/getAllEventsForEventPage')
+    .done(function (data){
+      console.log('all events data', data);
+      context.setState({
+        allEvents: data
+      })
+    })
   }
   
   render () {
@@ -43,11 +52,10 @@ class App extends React.Component {
       </div>
         <Route exact path='/' component={EventPage} />
         <Route path="/comedianprofiles" component={(props) => <ComedianList comedians={this.state.comedians}{...props} />} />
-        <Route path="/comediandash" component={ComedianDash} />
         <Route path="/login" component={LoginPage} />
         <Route path="/signup" component={SignupPage} />
         <Route path="/book" component={BookPage} />
-        <Route path="/chatBox" component={ChatBox} />
+        <Route path="/chatBox" component={(props) => <ChatBox data={this.state.allEvents}{...props} />} />
         <Route 
         path="/profile/:name" 
         component={(props) => {

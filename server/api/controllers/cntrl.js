@@ -19,13 +19,21 @@ module.exports.getPendingEvents = function(req, res) {
   db.query(queryString, function(err, result) {
     res.json(result);
   })
-}
+};
+
 module.exports.getBookedEvents = function(req, res) {
   var queryString = `SELECT * FROM events WHERE (id_comedians = ${req.query.id} AND events.status = 'booked')`
   db.query(queryString, function(err, result) {
     res.json(result);
   })
-}
+};
+
+module.exports.getOpenEvents = function(req, res) {
+  var queryString = `SELECT * FROM events WHERE (status = 'open')`
+  db.query(queryString, function(err, result) {
+    res.json(result);
+  })
+};
 
 module.exports.updateEventStatusBooked = function(req, res) {
   var queryString = `UPDATE events SET status = 'booked' WHERE id = ${req.query.id};`
@@ -39,7 +47,7 @@ module.exports.updateEventStatusOpen = function(req, res) {
   db.query(queryString, function(err, result) {
     res.json(result);
   })
-}
+};
 
 module.exports.getVenues = function(req, res) {
   var queryString = 'SELECT * FROM venues';
@@ -177,7 +185,7 @@ module.exports.checkLogin = function(req, res) {
   db.query(queryString, function(err, result) {
     res.json(result)
   })
-}
+};
 
 module.exports.getSpecificVenue = function(req, res) {
   console.log(req.query.id);
@@ -187,4 +195,4 @@ module.exports.getSpecificVenue = function(req, res) {
   db.query(queryString, function(err, result) {
     res.json(result);
   })
-}
+};

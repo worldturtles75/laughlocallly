@@ -15,6 +15,7 @@ router.get('/updateStatusToBooked', cntrl.updateEventStatusBooked);
 router.get('/updateStatusToOpen', cntrl.updateEventStatusOpen);
 router.get('/getPendingEvents', cntrl.getPendingEvents);
 router.get('/getBookedEvents', cntrl.getBookedEvents);
+router.get('/getOpenEvents', cntrl.getOpenEvents);
 
 router.post('/loginCheck', cntrl.checkLogin);
 router.post('/audienceRegistration', cntrl.audienceRegistration);

@@ -1,11 +1,11 @@
 var mysql = require('mysql');
 var Promise = require('bluebird');
 
-var db = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  // password : 'FILL_ME_IN',
-  // database : 'laughlocally'
+var db = mysql.createConnection({
+  host     : 'us-cdbr-iron-east-03.cleardb.net',
+  user     : 'bce42e5faf12da',
+  password : 'b8bbe18e',
+  database : 'heroku_46dfd3e3a278e3c'
 });
 
 // this will automatically insert tables into mysql when server is run from command line. 
@@ -13,10 +13,10 @@ var dp = Promise.promisifyAll(db);
 
 dp.connectAsync()
   .then(() => {
-  	return dp.queryAsync(`CREATE DATABASE IF NOT EXISTS laughlocally`)
+  	return dp.queryAsync(`CREATE DATABASE IF NOT EXISTS heroku_46dfd3e3a278e3c`)
   }) 
   .then(() => {
-  	return dp.queryAsync(`USE laughlocally`)
+  	return dp.queryAsync(`USE heroku_46dfd3e3a278e3c`)
   })
   .then(() => {
   	return dp.queryAsync(`

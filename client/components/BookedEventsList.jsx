@@ -18,7 +18,7 @@ class BookedEvents extends React.Component {
   }
 
   getBookedEvents() {
-    $.get('/getBookedEvents', {id: this.props.comedianInfo.id})
+    $.get('/getBookedEvents', {id: this.props.comedianInfo.id + 1})
     .done(data => {
       console.log('data received', data)
       this.setState({
@@ -31,7 +31,7 @@ class BookedEvents extends React.Component {
     const bookedList = this.state.bookedEventList;
     const eventPos = bookedList.map(event => event.name).indexOf(eventName);
     console.log('Deny Event id', eventPos);
-    $.get('updateStatusToOpen', {id: bookedList[eventPos].id})
+    $.get('updateStatusToOpen', {id: bookedList[eventPos].id + 1})
     .done(data => {
       console.log('Success while denying data event to book', data);
     })

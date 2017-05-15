@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS laughlocally; 
+DROP DATABASE IF EXISTS heroku_46dfd3e3a278e3c; 
 
-CREATE DATABASE laughlocally;  
+CREATE DATABASE heroku_46dfd3e3a278e3c;  
 
-USE laughlocally;
+USE heroku_46dfd3e3a278e3c;
 
 DROP TABLE IF EXISTS audience;
 DROP TABLE IF EXISTS events;

@@ -12,10 +12,15 @@ class BookedEvent extends React.Component {
     console.log('booked props', this.props.booked)
     return (
       <div className="thumbnail">
-        <div>Name: {this.props.booked.name}</div>
-        <div>Date: {this.props.booked.date}</div>
-        <div>Detail: <img src={this.props.booked.photo_url}/> </div>
-        <button onClick={() => this.props.cancel(this.props.booked.name)}>Cancel</button>
+        <img src={this.props.booked.photo_url} alt="..." />        
+        <div className="caption">
+          <h3>{this.props.booked.name}</h3>
+          <p><strong>Date:</strong> {this.props.booked.date}</p>
+          <p><strong>Time:</strong> {this.props.booked.start_time}</p>
+          <p><strong>Description:</strong> {this.props.booked.description}</p>
+
+          <button className="btn btn-primary btn-sm" onClick={() => this.props.cancel(this.props.booked.name)}>Cancel</button>
+        </div>
       </div>
     );
   }

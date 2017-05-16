@@ -2,7 +2,7 @@
 Laugh Local.ly
 
 
-> Pithy project description
+> Laugh Locla.ly is a platform for comedians to perform in local homes. People can come sign up for shows locally and have a fun time.
 
 ## Team
 
@@ -28,10 +28,11 @@ Laugh Local.ly
 ## Requirements
 
 - Node 6.4.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- React
+- Mysql
+- Socket.io
+- React
+
 
 ## Development
 
@@ -40,14 +41,15 @@ Laugh Local.ly
 From within the root directory:
 
 ```sh
-npm install -g bower
 npm install
-bower install
+npm run dev-server
+npm run build
+npm run seed
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_DOC)
+View the project roadmap [here](https://docs.google.com/document/d/1otmftEPbTXW_SFyPpQOqE2dGAFt2DQcNj6V0pXT7MVA/edit?usp=drive_web)
 
 
 ## Contributing
